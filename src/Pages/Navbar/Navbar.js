@@ -11,7 +11,7 @@ const Navbar = () => {
                     <Link to="/"><span className="font-semibold text-xl tracking-tight">Title</span></Link>
                     <div className="md:items-center md:w-auto flex">
                         <div className="md:flex hidden">
-                            <Link to="/home" className="block md:text-white mr-4" href="/link">Home</Link>
+                            <Link to="/" className="block md:text-white mr-4" href="/link">Home</Link>
                             <Link to="/inventory" className="block md:text-white mr-4" href="/link">Inventory</Link>
                             <Link to="/blogs" className="block md:text-white mr-4" href="/link">Blogs</Link>
                             < Link to="/dashboard" className="block md:text-white mr-4" href="/link">Dashboard</Link>
