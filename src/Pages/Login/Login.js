@@ -1,60 +1,76 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import login from '../../images/login.jpg'
 const Login = () => {
     return (
-        <div className="bg-gray-100 min-h-screen flex flex-col">
-            <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-6 py-8 rounded-md shadow-lg text-black w-full">
-                    <h1 className="mb-4 text-3xl text-center">Sign up</h1>
-                    <input
-                        type="text"
-                        className="block border border-gray-300  w-full p-3 rounded mb-4"
-                        name="fullname"
-                        placeholder="Enter Full Name" />
-
-                    <input
-                        type="text"
-                        className="block border border-gray-300  w-full p-3 rounded mb-4"
-                        name="email"
-                        placeholder="Enter Email" />
-
-                    <input
-                        type="password"
-                        className="block border border-gray-300  w-full p-3 rounded mb-4"
-                        name="password"
-                        placeholder="Password" />
-                    <input
-                        type="password"
-                        className="block border border-gray-300  w-full p-3 rounded mb-4"
-                        name="confirm_password"
-                        placeholder="Confirm Password" />
-
-                    <button
-                        type="submit"
-                        className="w-full text-center py-3 rounded bg-green-400 text-white hover:bg-green-600 focus:outline-none my-1"
-                    >Create Account</button>
-
-                    <div className="text-center text-sm text-grey-dark mt-4">
-                        <span>By signing up, you agree to the </span>
-                        <Link to='/login' className="no-underline border-b border-gray-400 text-gray-500" href="#">
-                            Terms of Services
-                        </Link> <span>and </span>
-                        <Link to="/signup" className="no-underline border-b border-gray-400 text-gray-500" href="#">
-                            Privacy Policy
-                        </Link>
+        <div className="container mx-auto min-h-screen">
+            <div className="flex justify-center px-6 my-4">
+                <div className="w-full xl:w-3/4 lg:w-7 flex">
+                    <div className="w-full h-aut hidden lg:block lg:w-1/2 bg-cover rounded-l-lg">
+                        <img src={login} alt="" />
                     </div>
-                </div>
-
-                <div className="text-gray-900 mt-3">
-                    <span>Already have an account? </span>
-                    <Link to="/login" className="no-underline border-b border-blue-200 text-blue" href="../login/">
-                        Log in
-                    </Link>.
+                    <div className="w-full lg:w-1/2 bg-gray-50 p-5 shadow-2xl rounded-lg lg:rounded-l-none">
+                        <h3 className="mb-3 text-2xl text-center">Welcome Back!</h3>
+                        <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                            <div className="mb-4">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
+                                    Username
+                                </label>
+                                <input
+                                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="username"
+                                    type="name"
+                                    placeholder="Username"
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                    Password
+                                </label>
+                                <input
+                                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="password"
+                                    type="password"
+                                    placeholder="******************"
+                                />
+                                <p className="text-xs italic text-red-500">Please choose a password.</p>
+                            </div>
+                            <div className="mb-4">
+                                <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
+                                <label className="text-sm" for="checkbox_id">
+                                    Remember Me
+                                </label>
+                            </div>
+                            <div className="mb-6 text-center">
+                                <button
+                                    className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
+                                    type="button"
+                                >
+                                    Sign In
+                                </button>
+                            </div>
+                            <hr className="mb-6 border-t" />
+                            <div className="text-center">
+                                <Link to="/signup"
+                                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                >
+                                    Create an Account!
+                                </Link>
+                            </div>
+                            <div className="text-center">
+                                <a
+                                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                    href="./forgot-password.html"
+                                >
+                                    Forgot Password?
+                                </a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default Login;
