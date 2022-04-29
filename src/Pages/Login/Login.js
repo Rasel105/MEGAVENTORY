@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import google from '../../images/google2.png'
 import login from '../../images/login.jpg'
+
+
 const Login = () => {
     return (
         <div className="container mx-auto min-h-screen">
@@ -35,36 +38,53 @@ const Login = () => {
                                 />
                                 <p className="text-xs italic text-red-500">Please choose a password.</p>
                             </div>
-                            <div className="mb-4">
-                                <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-                                <label className="text-sm" for="checkbox_id">
-                                    Remember Me
-                                </label>
+                            <div className="mb-4 flex justify-between">
+                                <div>
+                                    <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
+                                    <label className="text-sm" for="checkbox_id">
+                                        Remember Me
+                                    </label>
+                                </div>
+                                <div className="text-center">
+                                    <a
+                                        className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                        href="./forgot-password.html"
+                                    >
+                                        Forgot Password?
+                                    </a>
+                                </div>
                             </div>
                             <div className="mb-6 text-center">
                                 <button
                                     className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                     type="button"
                                 >
-                                    Sign In
+                                    Login
                                 </button>
                             </div>
                             <hr className="mb-6 border-t" />
                             <div className="text-center">
-                                <Link to="/signup"
-                                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                >
-                                    Create an Account!
-                                </Link>
+                                <button
+                                    className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-white rounded-full border-2 bg-blue-400 focus:outline-none focus:shadow-outline"
+                                    type="button">
+                                    <img className='inline' style={{ width: '25px' }} src={google} alt="" />
+                                    <span className='text-center'>Continue with google</span>
+                                </button>
                             </div>
-                            <div className="text-center">
-                                <a
-                                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                    href="./forgot-password.html"
-                                >
-                                    Forgot Password?
-                                </a>
+                            <div className='flex flex-row justify-center'>
+                                <div className='border-2'></div>
+                                <p className='text-center'>or</p>
+                                <div className='border-2'></div>
                             </div>
+                            <div className="mb-2 text-center">
+                                <button
+                                    className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
+                                    type="button"
+                                >
+                                    Create an Account
+                                </button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
