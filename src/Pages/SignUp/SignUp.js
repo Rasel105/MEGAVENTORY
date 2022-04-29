@@ -13,7 +13,7 @@ const SignUp = () => {
                     </div>
                     <div className="w-full lg:w-1/2 bg-gray-50 p-5 shadow-2xl rounded-lg lg:rounded-l-none">
                         <h3 className="mb-3 text-2xl text-center">Register an Account!</h3>
-                        <form className="px-8 pt-3 pb-8bg-white rounded">
+                        <form className="px-8 pt-3 pb-8 bg-white rounded">
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
                                     Your Name
@@ -75,11 +75,10 @@ const SignUp = () => {
                             </div>
                             <p className='text-center mb-1'>or</p>
                             <div className="text-center">
-                                <hr className="mb-3 border-t" />
                                 <button
                                     className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-white rounded-full border-2 bg-blue-400 focus:outline-none focus:shadow-outline"
                                     type="button">
-                                    <img className='inline' style={{width: '35px'}} src={google} alt="" />
+                                    <img className='inline' style={{width: '25px'}} src={google} alt="" />
                                     <span className=''>Sign in with google</span>
                                 </button>
                             </div>
