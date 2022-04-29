@@ -11,10 +11,10 @@ const Navbar = () => {
                     <Link to="/"><span className="font-semibold text-xl tracking-tight">Title</span></Link>
                     <div className="md:items-center md:w-auto flex">
                         <div className="md:flex hidden">
-                            <Link to="/" className="block md:text-white mr-4" href="/link">Link 1</Link>
-                            <Link to="/" className="block md:text-white mr-4" href="/link">Link 2</Link>
-                            <Link to="/" className="block md:text-white mr-4" href="/link">Link 3</Link>
-                            < Link to="/" className="block md:text-white mr-4" href="/link">Link 4</Link>
+                            <Link to="/home" className="block md:text-white mr-4" href="/link">Home</Link>
+                            <Link to="/inventory" className="block md:text-white mr-4" href="/link">Inventory</Link>
+                            <Link to="/blogs" className="block md:text-white mr-4" href="/link">Blogs</Link>
+                            < Link to="/dashboard" className="block md:text-white mr-4" href="/link">Dashboard</Link>
                         </div>
                         <div className="flex text-sm">
                             <Link to="/login" className="p-2 ml-2 bg-white text-teal-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Login</Link>

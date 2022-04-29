@@ -12,8 +12,8 @@ const SignUp = () => {
                         <img src={signup} alt="" />
                     </div>
                     <div className="w-full lg:w-1/2 bg-gray-50 p-5 shadow-2xl rounded-lg lg:rounded-l-none">
-                        <h3 className="mb-3 text-2xl text-center">Register an Account!</h3>
-                        <form className="px-8 pt-3 pb-8 bg-white rounded">
+                        <h3 className="mb-2 text-2xl text-center">Register an Account!</h3>
+                        <form className="px-8 pt-2 pb-8 bg-white rounded">
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
                                     Your Name
