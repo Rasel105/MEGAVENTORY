@@ -76,7 +76,7 @@ const SignUp = () => {
                             <p className='text-center mb-1'>or</p>
                             <div className="text-center">
                                 <button
-                                    className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-white rounded-full border-2 bg-blue-400 focus:outline-none focus:shadow-outline"
+                                    className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-black rounded-full border-2 bg-white focus:outline-none focus:shadow-outline"
                                     type="button">
                                     <img className='inline' style={{width: '25px'}} src={google} alt="" />
                                     <span className=''>Sign in with google</span>

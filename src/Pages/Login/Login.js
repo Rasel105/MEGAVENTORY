@@ -62,27 +62,27 @@ const Login = () => {
                                     Login
                                 </button>
                             </div>
-                            <hr className="mb-2 border-t" />
-                            <div className="text-center">
+                            <div className='flex flex-row justify-center mb-2'>
+                                <div className='border-2'></div>
+                                <p className='text-center'>or</p>
+                                <div className='border-2'></div>
+                            </div>
+                            <div className="text-center mb-3">
                                 <button
-                                    className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-white rounded-full border-2 bg-blue-400 focus:outline-none focus:shadow-outline"
+                                    className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-black rounded-full border-2 bg-white focus:outline-none focus:shadow-outline"
                                     type="button">
                                     <img className='inline' style={{ width: '25px' }} src={google} alt="" />
                                     <span className='text-center'>Continue with google</span>
                                 </button>
                             </div>
-                            <div className='flex flex-row justify-center'>
-                                <div className='border-2'></div>
-                                <p className='text-center'>or</p>
-                                <div className='border-2'></div>
-                            </div>
+
                             <div className="mb-2 text-center">
-                                <button
+                                <Link to="/signup"
                                     className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                     type="button"
                                 >
                                     Create an Account
-                                </button>
+                                </Link>
                             </div>
                         </form>
 
