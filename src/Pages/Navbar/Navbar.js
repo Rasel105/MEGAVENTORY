@@ -3,23 +3,28 @@ import { Link } from 'react-router-dom';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false)
 
     return (
-        <nav className='bg-indigo-300'>
-            <div onClick={() => setOpen(!open)} className='h-7 w-7 text-black md:hidden'>
-                {open ? <XIcon/> :  <MenuIcon />}
-            </div>
-            <ul className={`md:flex justify-center w-full bg-indigo-300 md:static absolute duration-500 ease-in ${open ? 'top-6' : 'top-[-120px]'}`}>
-                <li><Link to="/">Home</Link></li>
-                <div className='md:flex'>
-                    <li><Link className='mr-3' to="/">Contact</Link></li>
-                    <li><Link className='mr-3' to="/">Coupon</Link></li>
-                    <li><Link className='mr-3' to="/">Inventory</Link></li>
-                    <li><Link className='mr-3' to="/">Deals</Link></li>
-                </div>
-            </ul>
-        </nav>
+
+        <div className="w-full" >
+            <header className="bg-teal-400">
+                <nav className="flex justify-between w-full bg-purple-500 text-white p-4">
+                    <Link to="/"><span className="font-semibold text-xl tracking-tight">Title</span></Link>
+                    <div className="md:items-center md:w-auto flex">
+                        <div className="md:flex hidden">
+                            <Link to="/" className="block md:text-white mr-4" href="/link">Link 1</Link>
+                            <Link to="/" className="block md:text-white mr-4" href="/link">Link 2</Link>
+                            <Link to="/" className="block md:text-white mr-4" href="/link">Link 3</Link>
+                            < Link to="/" className="block md:text-white mr-4" href="/link">Link 4</Link>
+                        </div>
+                        <div className="flex text-sm" v-else>
+                            <Link to="/" className="p-2 ml-2 bg-white text-teal-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Login</Link>
+                            <Link to="/" className="p-2 ml-2 bg-teal-500 text-gray-100 font-semibold leading-none border border-teal-600 rounded hover:border-transparent hover:bg-teal-600">Sign up</Link>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
     );
 };
 
