@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import google from '../../images/google2.png'
-import login from '../../images/login.jpg'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
-
+import SocialLogIn from '../../SocialLogIn/SocialLogIn';
+import loginImage from '../../images/formImages/login.jpg'
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -42,7 +41,7 @@ const Login = () => {
             <div className="flex justify-center px-6 my-2">
                 <div className="w-full xl:w-3/4 lg:w-7 flex">
                     <div className="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg">
-                        <img src={login} alt="" />
+                        <img src={loginImage}  alt="" />
                     </div>
                     <div className="w-full lg:w-1/2 bg-gray-50 p-5 shadow-2xl rounded-lg lg:rounded-l-none">
                         <h3 className="mb-2 text-2xl text-center">Welcome Back!</h3>
@@ -100,14 +99,16 @@ const Login = () => {
                                 <p className='text-center'>or</p>
                                 <div className='border-2'></div>
                             </div>
-                            <div className="text-center mb-3">
+
+                            {/* <div className="text-center mb-3">
                                 <button
                                     className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-black rounded-full border-2 bg-white focus:outline-none focus:shadow-outline"
                                     type="button">
                                     <img className='inline' style={{ width: '25px' }} src={google} alt="" />
                                     <span className='text-center'>Continue with google</span>
                                 </button>
-                            </div>
+                            </div> */}
+                            <SocialLogIn/>
 
                             <div className="mb-2 text-center">
                                 <Link to="/signup"

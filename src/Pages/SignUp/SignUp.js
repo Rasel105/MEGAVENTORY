@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import signup from '../../images/signup.png'
-import google from '../../images/google2.png'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init.js'
 import Loading from '../Shared/Loading/Loading';
+import signupImages from '../../images/formImages/signup.png'
+import SocialLogIn from '../../SocialLogIn/SocialLogIn.js';
 const SignUp = () => {
     const navigate = useNavigate();
     const [
@@ -42,7 +42,7 @@ const SignUp = () => {
             <div className="flex justify-center px-6 my-4">
                 <div className="w-full xl:w-3/4 lg:w-7 flex">
                     <div className="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg">
-                        <img src={signup} alt="" />
+                        <img src={signupImages} alt="" />
                     </div>
                     <div className="w-full lg:w-1/2 bg-gray-50 p-5 shadow-2xl rounded-lg lg:rounded-l-none">
                         <h3 className="mb-2 text-2xl text-center">Register an Account!</h3>
@@ -107,15 +107,16 @@ const SignUp = () => {
                                     Login!
                                 </Link>
                             </div>
-                            <p className='text-center mb-1'>or</p>
-                            <div className="text-center">
+                            <p className='text-center'>or</p>
+                            {/* <div className="text-center">
                                 <button
                                     className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-black rounded-full border-2 bg-white focus:outline-none focus:shadow-outline"
                                     type="button">
                                     <img className='inline' style={{ width: '25px' }} src={google} alt="" />
                                     <span className=''>Sign in with google</span>
                                 </button>
-                            </div>
+                            </div> */}
+                            <SocialLogIn/>
                         </form>
                     </div>
                 </div>
