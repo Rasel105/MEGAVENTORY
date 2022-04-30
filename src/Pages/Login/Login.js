@@ -4,6 +4,7 @@ import google from '../../images/google2.png'
 import login from '../../images/login.jpg'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
     const [
@@ -13,13 +14,28 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
+
     const handleLogin = (e) => {
         e.preventDefault();
-        const email = e.target.name.value;
+        const email = e.target.email.value;
         const password = e.target.password.value;
+        // console.log(email, password)
         signInWithEmailAndPassword(email, password);
-        navigate('/');
-    }
+    };
+
+    let errorTag;
+    if (error) {
+        errorTag = <p>Error: {error.message}</p>
+    };
+
+    if (loading) {
+        return <Loading />
+    };
+
+    if (user) {
+        navigate('/')
+    };
+
 
     return (
         <div className="container mx-auto min-h-screen">
@@ -32,18 +48,18 @@ const Login = () => {
                         <h3 className="mb-2 text-2xl text-center">Welcome Back!</h3>
                         <form onSubmit={handleLogin} className="px-8 pt-3 pb-8 mb-4 bg-white rounded">
                             <div className="mb-4">
-                                <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
                                     Email
                                 </label>
                                 <input
                                     className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    name="emal"
+                                    name="email"
                                     type="email"
                                     placeholder="Your email"
                                 />
                             </div>
                             <div className="mb-2">
-                                <label className="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
                                     Password
                                 </label>
                                 <input
@@ -57,7 +73,7 @@ const Login = () => {
                             <div className="mb-7 flex justify-between">
                                 <div>
                                     <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-                                    <label className="text-sm" for="checkbox_id">
+                                    <label className="text-sm" htmlFor="checkbox_id">
                                         Remember Me
                                     </label>
                                 </div>
@@ -71,6 +87,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className="mb-3 text-center">
+                                <p className='text-red-700 mb-2'>{errorTag}</p>
                                 <button
                                     className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                     type="submit"

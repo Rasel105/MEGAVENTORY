@@ -22,19 +22,20 @@ const SignUp = () => {
          createUserWithEmailAndPassword(email, password)
         console.log(name, email, password);
         // navigate('/')
-    }
+    };
+
     let errorTag;
     if (error) {    
         errorTag = <p>Error: {error.message}</p>
-    }
+    };
+
     if (loading) {
         return <Loading />
-    }
+    };
+
     if (user) {
         navigate('/')
-    }
-
-
+    };
 
     return (
         <div className="container mx-auto min-h-screen">

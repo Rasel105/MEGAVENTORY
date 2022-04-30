@@ -67,7 +67,7 @@ const Inventory = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col'>
                         <label className='block text-3xl'>Restock Products</label>
-                        <input className='py-4 border-2 px-3 text-lg my-3 rounded-xl' placeholder='Increase product' {...register("quantity", { required: true })} />
+                        <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' {...register("quantity", { required: true })} />
                         <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock" />
                     </div>
                 </form>
