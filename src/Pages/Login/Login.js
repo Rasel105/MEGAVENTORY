@@ -35,7 +35,6 @@ const Login = () => {
         navigate('/')
     };
 
-
     return (
         <div className="container mx-auto min-h-screen">
             <div className="flex justify-center px-6 my-2">

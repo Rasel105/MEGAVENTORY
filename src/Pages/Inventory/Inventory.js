@@ -6,7 +6,6 @@ const Inventory = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const { register, handleSubmit } = useForm();
-
     useEffect(() => {
         fetch(`http://localhost:5000/product/${id}`)
             .then(res => res.json())
@@ -29,13 +28,15 @@ const Inventory = () => {
             });
     };
 
-    const onSubmit = (data, event) => {
+    const handleStockUpdate = (data, event) => {
+        const quantity = parseInt(product.quantity) + parseInt(data.quantity);
+        // console.log(quantity);
         fetch(`http://localhost:5000/insertProduct/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({quantity}),
         })
             .then(response => response.json())
             .then(data => {
@@ -44,10 +45,9 @@ const Inventory = () => {
             });
     };
 
-
     return (
-        <div className='container grid md:grid-cols-2 gap-5 w-full mx-auto justify-center my-3'>
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className='container grid md:grid-cols-12 gap-5 w-full mx-auto justify-center my-3'>
+            <div className="md:col-span-8 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <img className="rounded-t-lg" src={product.img} alt="" />
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.product_name}</h5>
@@ -63,8 +63,8 @@ const Inventory = () => {
                     </div>
                 </div>
             </div>
-            <div className='md:mt-32 mx-auto'>
-                <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='md:mt-32 mx-auto md:col-span-4'>
+                <form onSubmit={handleSubmit(handleStockUpdate)}>
                     <div className='flex flex-col'>
                         <label className='block text-3xl'>Restock Products</label>
                         <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' {...register("quantity", { required: true })} />

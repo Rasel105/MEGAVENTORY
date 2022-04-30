@@ -19,7 +19,7 @@ const SignUp = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-         createUserWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(email, password)
         console.log(name, email, password);
         // navigate('/')
     };

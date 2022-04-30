@@ -6,8 +6,7 @@ const InventoryCard = ({ product }) => {
     const navigate = useNavigate();
     const navigateToInventory = (id) => {
         navigate(`/inventory/${id}`);
-    }
-
+    };
     return (
         // <div className='border-2 max-h-full px-4 my-5 rounded-lg '>
         //     <img className='w-100 mx-auto rounded-t-lg' src={img} alt="" />
@@ -23,7 +22,7 @@ const InventoryCard = ({ product }) => {
         //         </button>
         //     </div>
         // </div>
-        <div className="max-w-sm mx-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className="max-w-sm mx-auto items-center justify-center bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <img className="rounded-t-lg" src={img} alt="" />
             <div className="p-5">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product_name}</h5>
