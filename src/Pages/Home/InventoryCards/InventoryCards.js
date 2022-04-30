@@ -16,9 +16,10 @@ const InventoryCards = () => {
             <h3 className='text-center text-3xl my-2 underline text-lime-500'>Inventory Products List</h3>
             <div className='container grid md:grid-cols-3 gap-5 px-5 w-100 mx-auto sm:grid-cols-1'>
                 {
-                    products.map(product => <InventoryCard 
-                        key={product.id} 
-                        product={product} />)
+                    products.map(product => <InventoryCard
+                        key={product.id}
+                        product={product}
+                    />)
                 }
             </div>
         </div>
