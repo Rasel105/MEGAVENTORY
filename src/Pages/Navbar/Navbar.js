@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="w-full" >
             <header className="bg-teal-400">
                 <nav className="flex justify-between w-full bg-purple-500 text-white p-4">
-                    <Link to="/"><span className="font-semibold text-xl tracking-tight">Title</span></Link>
+                    <Link to="/"><span className="font-semibold text-xl tracking-tight">Inventory</span></Link>
                     <div className="md:items-center md:w-auto flex">
                         <div className="md:flex hidden">
                             <Link to="/" className="block md:text-white mr-4" href="/link">Home</Link>
