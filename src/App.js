@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import Navbar from './Pages/Navbar/Navbar';
 import Inventory from './Pages/Inventory/Inventory';
+import ManageInventories from './Pages/ManageInventories/ManageInventories';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/inventory/:id' element={<Inventory/>}></Route>
+        <Route path='/manageInventories' element={<ManageInventories/>}></Route>
       </Routes>
     </div>
   );
