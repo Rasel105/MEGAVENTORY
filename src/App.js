@@ -7,6 +7,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import Navbar from './Pages/Navbar/Navbar';
 import Inventory from './Pages/Inventory/Inventory';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
+import AddInventoryItems from './Pages/AddInventoryItems/AddInventoryItems';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/inventory/:id' element={<Inventory/>}></Route>
         <Route path='/manageInventories' element={<ManageInventories/>}></Route>
+        <Route path='/additems' element={<AddInventoryItems/>}></Route>
       </Routes>
     </div>
   );

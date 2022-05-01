@@ -1,6 +1,7 @@
 import React from 'react';
 import useAllProducts from '../../hooks/useAllProducts';
 import { BiAddToQueue } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 const ManageInventories = () => {
     const [products] = useAllProducts();
@@ -22,9 +23,9 @@ const ManageInventories = () => {
     return (
         <>
             <div className='container flex justify-end'>
-                <button className='py-2 px-3 my-3 mr-2 bg-lime-500 rounded-lg text-xl text-white'>Add new item
+                <Link to='/additems' className='py-2 px-3 my-3 mr-2 bg-lime-500 rounded-lg text-xl text-white'>Add new item
                 <BiAddToQueue className="inline m-2"/>
-                </button>
+                </Link>
             </div>
             <div className="container w-full mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
