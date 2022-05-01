@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
-import SocialLogIn from '../../SocialLogIn/SocialLogIn';
+import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import loginImage from '../../images/formImages/login.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

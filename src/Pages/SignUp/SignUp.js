@@ -4,7 +4,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init.js'
 import Loading from '../Shared/Loading/Loading';
 import signupImages from '../../images/formImages/signup.png'
-import SocialLogIn from '../../SocialLogIn/SocialLogIn.js';
+import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

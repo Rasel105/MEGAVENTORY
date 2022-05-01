@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import auth from '../firebase.init';
-import Loading from '../Pages/Shared/Loading/Loading';
-import google from '../images/google/google.png'
+import auth from '../../../firebase.init';
+import Loading from '../Loading/Loading';
+import google from '../../../images/google/google2.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
