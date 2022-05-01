@@ -23,9 +23,9 @@ const Navbar = () => {
                             user
                                 ? <div className='flex items-center'>
                                     <Link to="/" className="block md:text-white mr-2 md:mr-4" href="/link">Home</Link>
-                                    <Link to="/inventory" className="block md:text-white mr-2 md:mr-4" href="/link">Manage Items</Link>
-                                    <Link to="/blogs" className="block md:text-white mr-2 md:mr-4" href="/link">Add Item</Link>
-                                    <Link to="/dashboard" className="block md:text-white mr-2 md:mr-4" href="/link">My items</Link>
+                                    <Link to="/manageInventories" className="block md:text-white mr-2 md:mr-4" href="/link">Manage Items</Link>
+                                    <Link to="/additems" className="block md:text-white mr-2 md:mr-4" href="/link">Add Item</Link>
+                                    <Link to="/myitems" className="block md:text-white mr-2 md:mr-4" href="/link">My items</Link>
                                     <button onClick={handleSignOut} className="p-2 ml-2 bg-white text-teal-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Sign Out</button>
                                 </div>
                                 :
