@@ -5,6 +5,11 @@ import auth from '../../firebase.init.js'
 import Loading from '../Shared/Loading/Loading';
 import signupImages from '../../images/formImages/signup.png'
 import SocialLogIn from '../../SocialLogIn/SocialLogIn.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const SignUp = () => {
     const navigate = useNavigate();
     const [
@@ -25,8 +30,32 @@ const SignUp = () => {
     };
 
     let errorTag;
-    if (error) {    
-        errorTag = <p>Error: {error.message}</p>
+    if (error) {
+        switch (error.code) {
+            default:
+                // error.message = 'Internal Error'
+                break;
+            case 'auth/user-not-found':
+                toast.error('Use not found', {
+                    toastId: 'success1',
+                });
+                break;
+            case 'auth/email-already-exists':
+                toast.error('Email already exists', {
+                    toastId: 'success1',
+                });
+                break;
+            case 'auth/invalid-email':
+                toast.error('Invalid email', {
+                    toastId: 'success1',
+                });
+                break;
+            case 'auth/wrong-password':
+                toast.error('wrong-password', {
+                    toastId: 'success1',
+                });
+                break;
+        }
     };
 
     if (loading) {
@@ -92,7 +121,6 @@ const SignUp = () => {
                                 />
                             </div>
                             <div className="mb-2 text-center">
-                                <p className='text-red-700 mb-2'>{errorTag}</p>
                                 <button
                                     className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                     type="submit"
@@ -116,11 +144,12 @@ const SignUp = () => {
                                     <span className=''>Sign in with google</span>
                                 </button>
                             </div> */}
-                            <SocialLogIn/>
+                            <SocialLogIn />
                         </form>
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
