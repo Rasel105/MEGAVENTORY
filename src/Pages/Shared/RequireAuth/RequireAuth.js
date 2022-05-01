@@ -4,14 +4,19 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const RequireAuth = ({ children }) => {
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    const [sendEmailVerification] = useSendEmailVerification(auth);
-    
+    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+
+    if (loading) {
+        return <Loading />
+    }
+
     if (!user) {
-        return <Navigate to="/login" state={{ from: location }} replace />;
+        return <Navigate to='/login' state={{ from: location }} replace></Navigate>
     }
 
     if (user.providerData[0]?.providerId === "password" && !user.emailVerified) {

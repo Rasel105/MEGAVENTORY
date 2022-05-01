@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    let from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
     const [
         signInWithEmailAndPassword,
         user,
@@ -21,15 +21,24 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-   
+    if (loading) {
+        return <Loading />
+    };
+
+    
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         // console.log(email, password)
         signInWithEmailAndPassword(email, password);
+        
     };
 
+    if (user) {
+        navigate(from, { replace: true });
+    };
+    
     // let errorTag;
     if (error) {
         switch (error.code) {
@@ -59,13 +68,9 @@ const Login = () => {
         }
     };
 
-    if (loading) {
-        return <Loading />
-    };
+    
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
+   
 
     return (
         <div className="container mx-auto min-h-screen">

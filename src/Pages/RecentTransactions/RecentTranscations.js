@@ -10,7 +10,7 @@ const RecentTranscations = () => {
 
     return (
         <div className='w-full mx-auto container'>
-            <h2 className='text-2xl ml-6 mt-7 '><span className='text-lime-400 text-4xl'>Recent </span>Transactions</h2>
+            <h2 className='text-2xl ml-6 mt-7 '><span className='text-orange-400 text-4xl'>Recent </span>Transactions</h2>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <div className="p-4">
                     <label htmlFor="table-search" className="sr-only">Search</label>
@@ -25,7 +25,7 @@ const RecentTranscations = () => {
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="px-6 py-3">
-                                Order-ID {transactions.length}
+                                Order-ID
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 ITEM
@@ -71,7 +71,7 @@ const RecentTranscations = () => {
                                        {transaction.brand}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <p className='bg-lime-300 text-center py-1 rounded'> {transaction.status}</p>
+                                        <p className='bg-teal-400 text-center py-1 rounded'> {transaction.status}</p>
                                     </td>
                                 </tr>
                             )}
