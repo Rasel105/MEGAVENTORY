@@ -22,9 +22,25 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     };
 
-    let errorTag;
+    // let errorTag;
     if (error) {
-        errorTag = <p>Error: {error.message}</p>
+        switch (error.code) {
+            default:
+                // error.message = 'Internal Error'
+                break;
+            case 'auth/user-not-found':
+                error.message = "User not found"
+                break;
+            case 'auth/email-already-exists':
+                error.message = 'User Already Exists'
+                break;
+            case 'auth/invalid-email':
+                error.message = "Invalid email"
+                break;
+            case 'auth/wrong-password':
+                error.message = "Wrong password"
+                break;
+        }
     };
 
     if (loading) {
@@ -40,7 +56,7 @@ const Login = () => {
             <div className="flex justify-center px-6 my-2">
                 <div className="w-full xl:w-3/4 lg:w-7 flex">
                     <div className="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg">
-                        <img src={loginImage}  alt="" />
+                        <img src={loginImage} alt="" />
                     </div>
                     <div className="w-full lg:w-1/2 bg-gray-50 p-5 shadow-2xl rounded-lg lg:rounded-l-none">
                         <h3 className="mb-2 text-2xl text-center">Welcome Back!</h3>
@@ -85,7 +101,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className="mb-3 text-center">
-                                <p className='text-red-700 mb-2'>{errorTag}</p>
+                                <p className='text-red-700 mb-2'>{error?.message}</p>
                                 <button
                                     className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                     type="submit"
@@ -107,7 +123,7 @@ const Login = () => {
                                     <span className='text-center'>Continue with google</span>
                                 </button>
                             </div> */}
-                            <SocialLogIn/>
+                            <SocialLogIn />
 
                             <div className="mb-2 text-center">
                                 <Link to="/signup"

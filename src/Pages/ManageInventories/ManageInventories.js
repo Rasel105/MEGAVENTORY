@@ -32,10 +32,10 @@ const ManageInventories = () => {
                                 {product.product_name}
                             </th>
                             <td className="px-6 py-4">
-                               ${product.price}
+                                ${product.price}
                             </td>
                             <td className="px-6 py-4">
-                               {product.quantity}
+                                {product.quantity}
                             </td>
                             <td className="px-6 py-4">
                                 {product.supplier_name}
@@ -45,8 +45,8 @@ const ManageInventories = () => {
                             </td>
                         </tr>
 
-                    </tbody>)
-                }
+                    </tbody>
+                    )}
             </table>
         </div>
 
