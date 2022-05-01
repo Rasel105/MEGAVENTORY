@@ -12,8 +12,8 @@ const InventoryCards = () => {
                     products.slice(0, 6).map(product => <InventoryCard
                         key={product._id}
                         product={product}
-                    />)
-                }
+                    />
+                    )}
             </div>
             <div className='flex justify-end m-5 sm:m-5'>
                 <Link to='/manageInventories' className=' inline-flex items-center justify-center bg-teal-500 py-3 px-3 rounded-md text-white text-xl'>
