@@ -94,7 +94,6 @@ const Login = () => {
                                     type="password"
                                     placeholder="******************"
                                 />
-                                <p className="text-xs italic text-red-500">Please choose a password.</p>
                             </div>
                             <div className="mb-7 flex justify-between">
                                 <div>

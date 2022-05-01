@@ -29,7 +29,6 @@ const SignUp = () => {
         // navigate('/')
     };
 
-    let errorTag;
     if (error) {
         switch (error.code) {
             default:
