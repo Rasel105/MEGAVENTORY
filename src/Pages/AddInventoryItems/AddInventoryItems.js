@@ -38,7 +38,7 @@ const AddInventoryItems = () => {
                     <label className="block mb-2 text-sm font-bold text-gray-700">Quntity</label>
                     <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Quntity' type="number" {...register("quantity")} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Supplier</label>
-                    <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' type="text" placeholder='Supplier' {...register("suplier")} />
+                    <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' type="text" placeholder='Supplier' {...register("supplier_name")} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Img URL</label>
                     <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' type="text" placeholder='Image URL' {...register("img")} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Description</label>

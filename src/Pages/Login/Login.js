@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
@@ -10,14 +10,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || '/';
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const navigate = useNavigate();
 
+   
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -60,8 +64,8 @@ const Login = () => {
     };
 
     if (user) {
-        navigate('/')
-    };
+        navigate(from, { replace: true });
+    }
 
     return (
         <div className="container mx-auto min-h-screen">
@@ -145,7 +149,7 @@ const Login = () => {
                                 </Link>
                             </div>
                         </form>
-                        <ToastContainer/>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>

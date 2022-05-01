@@ -8,18 +8,27 @@ import Navbar from './Pages/Navbar/Navbar';
 import Inventory from './Pages/Inventory/Inventory';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import AddInventoryItems from './Pages/AddInventoryItems/AddInventoryItems';
+import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 
 function App() {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Header/>}></Route>
+        <Route path='/' element={<Header />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
-        <Route path='/inventory/:id' element={<Inventory/>}></Route>
-        <Route path='/manageInventories' element={<ManageInventories/>}></Route>
-        <Route path='/additems' element={<AddInventoryItems/>}></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <Inventory />
+          </RequireAuth>
+        }></Route>
+        <Route path='/manageInventories' element={
+          <RequireAuth>
+            <ManageInventories />
+          </RequireAuth>
+        }></Route>
+        <Route path='/additems' element={<AddInventoryItems />}></Route>
       </Routes>
     </div>
   );
