@@ -4,7 +4,11 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogIn from '../../SocialLogIn/SocialLogIn';
-import loginImage from '../../images/formImages/login.jpg'
+import loginImage from '../../images/formImages/login.jpg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -29,16 +33,24 @@ const Login = () => {
                 // error.message = 'Internal Error'
                 break;
             case 'auth/user-not-found':
-                error.message = "User not found"
+                toast.error('Use not found', {
+                    toastId: 'success1',
+                });
                 break;
             case 'auth/email-already-exists':
-                error.message = 'User Already Exists'
+                toast.error('Email already exists', {
+                    toastId: 'success1',
+                });
                 break;
             case 'auth/invalid-email':
-                error.message = "Invalid email"
+                toast.error('Invalid email', {
+                    toastId: 'success1',
+                });
                 break;
             case 'auth/wrong-password':
-                error.message = "Wrong password"
+                toast.error('wrong-password', {
+                    toastId: 'success1',
+                });
                 break;
         }
     };
@@ -101,7 +113,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className="mb-3 text-center">
-                                <p className='text-red-700 mb-2'>{error?.message}</p>
+                                {/* <p className='text-red-700 mb-2'>{error?.message}</p> */}
                                 <button
                                     className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                     type="submit"
@@ -134,7 +146,7 @@ const Login = () => {
                                 </Link>
                             </div>
                         </form>
-
+                        <ToastContainer/>
                     </div>
                 </div>
             </div>
