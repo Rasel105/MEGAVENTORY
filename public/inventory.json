@@ -1,13 +1,14 @@
-
 [
   {
     "id": 1,
     "product_name": "Radiographs",
     "img": "https://i.ibb.co/XtPLCSc/airplanae.png",
-    "description": "Some people wonder if dental radiographs are safe because they expose the patient radiation. Several factors and practices work together to make dental radiography safe. The amount of radiation used to obtain dental radiographs is very small If you are seeing a new dentist, be sure to provide him or her with copies of your existing radiographs to avoid duplicating them",
-    "price": "580",
+    "description": "Some people wonder if dental radiographs are safe because they expose ...",
+    "price ": "580",
     "quantity": "3",
-    "supplier_name": "Pran RFL"
+    "supplier_name": "Pran RFL",
+    "sold": "0",
+    "email": "azad.is.rasel@gmail.com"
   },
   {
     "id": 2,
@@ -16,7 +17,9 @@
     "description": "Many people dread teeth cleanings. Between the prodding, strange noises, and occasional jaw discomfort, it's easy to understand their apprehension. But for most, a teeth cleaning is simple and painless. Knowing exactly what is going on during the process can help ease your stress and allow you to better enjoy the minty-fresh results.",
     "price": "648",
     "quantity": "3",
-    "supplier_name": "Pran RFL"
+    "supplier_name": "Pran RFL",
+    "sold": "0",
+    "email": "azad.is.rasel@gmail.com"
   },
   {
     "id": 3,
@@ -25,7 +28,9 @@
     "description": "There are three types of mouthguards. Your athlete's dental professional can help you make the right choice. At any rate, the mouthguard must be resilient, tear-resistant, and comfortable. Fit is also important. It should not restrict speech or breathing. Here are the three types of mouthguards:",
     "price": "980",
     "quantity": "3",
-    "supplier_name": "Pran RFL"
+    "supplier_name": "Pran RFL",
+    "sold": "0",
+    "email": "azad.is.rasel@gmail.com"
   },
   {
     "id": 4,
@@ -34,7 +39,9 @@
     "description": "Dental implants are replacement tooth roots. Implants provide a strong foundation for fixed (permanent) or removable replacement teeth that are made to match your natural teeth. Success rates of dental implants vary, depending on where in the jaw the implants are placed but, in general, dental implants have a success rate of up to 98%. With proper care (see below), implants can last a lifetime.",
     "price": "790",
     "quantity": "3",
-    "supplier_name": "Pran RFL"
+    "supplier_name": "Pran RFL",
+    "sold": "0",
+    "email": "azad.is.rasel@gmail.com"
   },
   {
     "id": 5,
@@ -43,7 +50,9 @@
     "description": "A tooth filling is a procedure wherein the damaged and decayed part of a tooth is removed and the area is filled with a replacement material to protect against further damage and to restore the tooth's appearance and function. The replacement material, which is called the filling, can be made out of gold, silver amalgam, composite resin, glass ionomer, or porcelain. ",
     "price": "860",
     "quantity": "3",
-    "supplier_name": "Pran RFL"
+    "supplier_name": "Pran RFL",
+    "sold": "0",
+    "email": "azad.is.rasel@gmail.com"
   },
   {
     "id": 6,
@@ -52,6 +61,8 @@
     "description": "A tooth filling is a procedure wherein the damaged and decayed part of a tooth is removed and the area is filled with a replacement material to protect against further damage and to restore the tooth's appearance and function. The replacement material, which is called the filling, can be made out of gold, silver amalgam, composite resin, glass ionomer, or porcelain. ",
     "price": "860",
     "quantity": "3",
-    "supplier_name": "Pran RFL"
+    "supplier_name": "Pran RFL",
+    "sold": "0",
+    "email": "azad.is.rasel@gmail.com"
   }
 ]

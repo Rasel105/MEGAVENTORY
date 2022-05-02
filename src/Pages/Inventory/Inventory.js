@@ -30,6 +30,9 @@ const Inventory = () => {
 
     const handleStockUpdate = (data, event) => {
         const quantity = parseInt(product.quantity) + parseInt(data.quantity);
+        if(quantity < 0){
+            return;
+        }
         // console.log(quantity);
         fetch(`http://localhost:5000/insertProduct/${id}`, {
             method: 'PUT',
@@ -53,6 +56,7 @@ const Inventory = () => {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.product_name}</h5>
                     <h5 className='text-2xl'>Price: ${product.price}</h5>
                     <h5 className='text-xl'>Quantity: ${product.quantity}</h5>
+                    <h5 className='text-xl'>Sold: {product.sold}/pcs</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
                     <div className='flex justify-between items-center'>
                         <h5 className='text-2xl'>Quantity: {product.quantity}</h5>
