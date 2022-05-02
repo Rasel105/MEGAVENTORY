@@ -4,6 +4,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { signOut } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Navbar = () => {
     const [user, loading] = useAuthState(auth);
@@ -12,6 +15,7 @@ const Navbar = () => {
     }
     const handleSignOut = () => {
         signOut(auth);
+        toast("Sign Out")
     }
     return (
         <div className="w-full" >
@@ -36,6 +40,7 @@ const Navbar = () => {
                         }
                     </div>
                 </nav>
+                <ToastContainer />
             </header>
         </div>
     );

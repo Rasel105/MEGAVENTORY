@@ -32,7 +32,6 @@ const Login = () => {
         const password = e.target.password.value;
         // console.log(email, password)
         signInWithEmailAndPassword(email, password);
-
     };
 
     if (user) {

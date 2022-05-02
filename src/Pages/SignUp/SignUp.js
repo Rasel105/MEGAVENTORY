@@ -26,10 +26,10 @@ const SignUp = () => {
         const confirmPassword = e.target.conPass.value;
 
         if (password === confirmPassword) {
-            createUserWithEmailAndPassword(email, password)
+            createUserWithEmailAndPassword(email, password);
         }
-        else{
-            toast("Password don't matched")
+        else {
+            toast("Password don't matched");
         }
     };
 
@@ -64,7 +64,7 @@ const SignUp = () => {
     };
 
     if (user) {
-        navigate('/')
+        navigate('/');
     };
 
     return (
