@@ -13,8 +13,7 @@ const AddInventoryItems = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        console.log(data);
-
+        
         fetch('http://localhost:5000/product', {
             method: 'POST',
             headers: {

@@ -9,7 +9,7 @@ import Loading from '../Loading/Loading';
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+    const [sendEmailVerification] = useSendEmailVerification(auth);
 
     if (loading) {
         return <Loading />
@@ -20,11 +20,12 @@ const RequireAuth = ({ children }) => {
     }
 
     if (user.providerData[0]?.providerId === "password" && !user.emailVerified) {
-        return <div>
-            <h3 className='text-3xl'>Your email is not varified!</h3>
-            <h5 className='text-success'>Please Varify your email address</h5>
+        return <div className='flex flex-col items-center my-10 border sm:w-full md:w-1/4 p-3  rounded shadow-2xl mx-auto'>
+            <h3 className='text-3xl '>Please varify your email</h3>
+            <h5 className='text-xl mt-3'>We've sent a varification email</h5>
+            <h5 className='text-xl mt-3'>Check your email</h5>
             <button
-                className='btn btn-primary'
+                className='text-lg bg-green-500 px-3 py-2 rounded text-white mt-4'
                 onClick={async () => {
                     await sendEmailVerification();
                     toast('Sent email');

@@ -9,7 +9,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 const SignUp = () => {
     const navigate = useNavigate();
     const [
@@ -24,38 +23,41 @@ const SignUp = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        createUserWithEmailAndPassword(email, password)
-        console.log(name, email, password);
-        // navigate('/')
-    };
+        const confirmPassword = e.target.conPass.value;
 
-    if (error) {
-        switch (error.code) {
-            default:
-                // error.message = 'Internal Error'
-                break;
-            case 'auth/user-not-found':
-                toast.error('Use not found', {
-                    toastId: 'success1',
-                });
-                break;
-            case 'auth/email-already-exists':
-                toast.error('Email already exists', {
-                    toastId: 'success1',
-                });
-                break;
-            case 'auth/invalid-email':
-                toast.error('Invalid email', {
-                    toastId: 'success1',
-                });
-                break;
-            case 'auth/wrong-password':
-                toast.error('wrong-password', {
-                    toastId: 'success1',
-                });
-                break;
+        if (password === confirmPassword) {
+            createUserWithEmailAndPassword(email, password)
+        }
+        else{
+            toast("Password don't matched")
         }
     };
+
+    switch (error?.code) {
+        default:
+            // error.message = 'Internal Error'
+            break;
+        case 'auth/user-not-found':
+            toast.error('Use not found', {
+                toastId: 'success1',
+            });
+            break;
+        case 'auth/email-already-exists':
+            toast.error('Email already exists', {
+                toastId: 'success1',
+            });
+            break;
+        case 'auth/invalid-email':
+            toast.error('Invalid email', {
+                toastId: 'success1',
+            });
+            break;
+        case 'auth/wrong-password':
+            toast.error('wrong-password', {
+                toastId: 'success1',
+            });
+            break;
+    }
 
     if (loading) {
         return <Loading />
@@ -114,7 +116,7 @@ const SignUp = () => {
                                 </label>
                                 <input
                                     className="w-full px-3 py-2 mb-2 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    name='confirm_password'
+                                    name='conPass'
                                     type="password"
                                     placeholder="******************"
                                 />
@@ -148,7 +150,7 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };

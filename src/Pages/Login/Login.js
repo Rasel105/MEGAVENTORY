@@ -25,52 +25,50 @@ const Login = () => {
         return <Loading />
     };
 
-    
+
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         // console.log(email, password)
         signInWithEmailAndPassword(email, password);
-        
+
     };
 
     if (user) {
         navigate(from, { replace: true });
     };
-    
+
     // let errorTag;
-    if (error) {
-        switch (error.code) {
-            default:
-                // error.message = 'Internal Error'
-                break;
-            case 'auth/user-not-found':
-                toast.error('Use not found', {
-                    toastId: 'success1',
-                });
-                break;
-            case 'auth/email-already-exists':
-                toast.error('Email already exists', {
-                    toastId: 'success1',
-                });
-                break;
-            case 'auth/invalid-email':
-                toast.error('Invalid email', {
-                    toastId: 'success1',
-                });
-                break;
-            case 'auth/wrong-password':
-                toast.error('wrong-password', {
-                    toastId: 'success1',
-                });
-                break;
-        }
+    switch (error?.code) {
+        default:
+            // error.message = 'Internal Error'
+            break;
+        case 'auth/user-not-found':
+            toast.error('Use not found', {
+                toastId: 'success1',
+            });
+            break;
+        case 'auth/email-already-exists':
+            toast.error('Email already exists', {
+                toastId: 'success1',
+            });
+            break;
+        case 'auth/invalid-email':
+            toast.error('Invalid email', {
+                toastId: 'success1',
+            });
+            break;
+        case 'auth/wrong-password':
+            toast.error('wrong-password', {
+                toastId: 'success1',
+            });
+            break;
     };
 
-    
 
-   
+
+
 
     return (
         <div className="container mx-auto min-h-screen">

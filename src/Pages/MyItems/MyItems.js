@@ -4,7 +4,7 @@ import auth from '../../firebase.init.js'
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
-    const [myItemS, setMyItems] = useState([]);
+    const [myItems, setMyItems] = useState([]);
 
     useEffect(() => {
         const email = user.email;
@@ -33,7 +33,7 @@ const MyItems = () => {
 
     return (
         <div className=''>
-            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-green-400 '>Items {myItemS.length}</span></h2>
+            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-green-400 '>Items {myItems.length}</span></h2>
             <div className="container sm:w-full md:w-1/2 mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -56,7 +56,7 @@ const MyItems = () => {
                         </tr>
                     </thead>
                     {
-                        myItemS.map(item => <tbody key={item._id}>
+                        myItems.map(item => <tbody key={item._id}>
                             <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {item.product_name}
