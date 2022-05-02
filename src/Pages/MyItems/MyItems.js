@@ -17,9 +17,19 @@ const MyItems = () => {
             });
     }, [user]);
 
-    const handleProductDelete = (id) => {
-
-    }
+    const handleProductDelete = id => {
+        const deleteConfirm = window.confirm("Delete Product?");
+        if (deleteConfirm) {
+            fetch(`http://localhost:5000/myitem/${id }`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                });
+        };
+        
+    };
 
     return (
         <div className=''>
@@ -46,8 +56,8 @@ const MyItems = () => {
                         </tr>
                     </thead>
                     {
-                        myItemS.map(item => <tbody>
-                            <tr key={item._id} className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                        myItemS.map(item => <tbody key={item._id}>
+                            <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {item.product_name}
                                 </th>
@@ -61,7 +71,7 @@ const MyItems = () => {
                                     {item.supplier_name}
                                 </td>
                                 <td className="px-6 py-4">
-                                    <button onClick={() => handleProductDelete(item._id)} href="#" className="font-medium bg-red-400 py-2 px-3 rounded text-white">Delete</button>
+                                    <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 rounded text-white">Delete</button>
                                 </td>
                             </tr>
 

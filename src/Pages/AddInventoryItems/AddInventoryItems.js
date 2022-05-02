@@ -9,10 +9,12 @@ import auth from '../../firebase.init';
 
 const AddInventoryItems = () => {
     const [user] = useAuthState(auth);
-    const email = user.email;
+    const email = user?.email;
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
+        console.log(data);
+
         fetch('http://localhost:5000/product', {
             method: 'POST',
             headers: {
@@ -37,7 +39,7 @@ const AddInventoryItems = () => {
             <div className='border-2 p-3 my-5 container sm:p-3 sm:w-full md:w-5/12 mx-auto bg-slate-300 rounded-xl'>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
                     <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
-                    <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none bg-gray-200 focus:outline-none focus:shadow-outline ' value={email} readOnly disabled {...register("email")} />
+                    <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none bg-gray-200 focus:outline-none focus:shadow-outline ' value={email} readOnly {...register("email")} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Product Name</label>
                     <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Product Name' {...register("product_name", { required: true })} />
                     <label className="block mb-2 text-sm font-bold  text-gray-700">Price</label>
@@ -49,7 +51,7 @@ const AddInventoryItems = () => {
                     <label className="block mb-2 text-sm font-bold text-gray-700">Img URL</label>
                     <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' type="text" placeholder='Image URL' {...register("img", { required: true })} />
                     <label className="block mb-2 text-sm font-bold text-gray-700">Description</label>
-                    <textarea className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholdegir='Description' type="text" {...register("description", { required: true })} />
+                    <textarea className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Description' type="text" {...register("description", { required: true })} />
                     <div className='flex justify-end'>
                         <button className='bg-lime-500 py-2 px-4 mt-2 rounded-lg text-xl mx-2 text-white' type='submit'>
                             Add

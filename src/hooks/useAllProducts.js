@@ -9,7 +9,7 @@ const useAllProducts = () => {
                 console.log(data);
                 setProducts(data);
             });
-    }, []);
+    }, [products]);
     return [products, setProducts];
 };
 
