@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
@@ -21,10 +21,11 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    if (loading) {
+    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
         return <Loading />
     };
-
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -34,12 +35,23 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     };
 
+    const handleResetPassword = async e => {
+        const email = e.target.email.value;
+        if(email){
+            await sendPasswordResetEmail(email);
+            toast("Email sent");
+        }
+        else{
+            toast("Please enter your email first"); 
+        }
+    }
+
     if (user) {
         navigate(from, { replace: true });
     };
 
     // let errorTag;
-    switch (error?.code) {
+    switch (error?.code || error1?.code) {
         default:
             // error.message = 'Internal Error'
             break;
@@ -109,12 +121,11 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="text-center">
-                                    <a
+                                    <button onClick={handleResetPassword}
                                         className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                        href="./forgot-password.html"
                                     >
                                         Forgot Password?
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div className="mb-3 text-center">
