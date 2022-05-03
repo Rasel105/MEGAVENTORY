@@ -17,7 +17,9 @@ const Navbar = () => {
     }
     const handleSignOut = () => {
         signOut(auth);
-        toast("Sign Out")
+        toast.success("Sign Out", {
+            toastId: 'success1',
+        });
     }
 
     return (

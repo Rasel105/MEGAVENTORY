@@ -50,7 +50,7 @@ const Inventory = () => {
 
     return (
         <div className='container grid md:grid-cols-12 gap-5 w-full mx-auto justify-center my-3'>
-            <div className="md:col-span-8 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div className="md:col-span-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <img className="rounded-t-lg" src={product.img} alt="" />
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.product_name}</h5>
@@ -66,7 +66,7 @@ const Inventory = () => {
                     </div>
                 </div>
             </div>
-            <div className='md:mt-32 mx-auto md:col-span-4'>
+            <div className='md:mt-40 mx-auto md:col-span-6'>
                 <form onSubmit={handleSubmit(handleStockUpdate)}>
                     <div className='flex flex-col'>
                         <label className='block text-3xl'>Restock Products</label>

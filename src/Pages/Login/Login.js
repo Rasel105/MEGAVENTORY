@@ -39,10 +39,14 @@ const Login = () => {
         const email = e.target.email.value;
         if(email){
             await sendPasswordResetEmail(email);
-            toast("Email sent");
+            toast.success("Email sent", {
+                toastId: 'success1',
+            });
         }
         else{
-            toast("Please enter your email first"); 
+            toast.error("Please enter your email first", {
+                toastId: 'success1',
+            }); 
         }
     }
 
