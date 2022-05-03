@@ -3,7 +3,6 @@ import Dealers from '../Dealers/Dealers';
 import Banner from '../Home/Banner/Banner';
 import InventoryCards from '../Home/InventoryCards/InventoryCards';
 import RecentTranscations from '../RecentTransactions/RecentTranscations';
-import Footer from '../Shared/Footer.js/Footer';
 
 const Header = () => {
     return (
@@ -12,7 +11,6 @@ const Header = () => {
            <InventoryCards/>
            <Dealers/>
            <RecentTranscations/>
-           <Footer/>
         </div>
     );
 };

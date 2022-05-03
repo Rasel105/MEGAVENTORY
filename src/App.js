@@ -11,6 +11,7 @@ import AddInventoryItems from './Pages/AddInventoryItems/AddInventoryItems';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import Footer from './Pages/Shared/Footer.js/Footer';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
         <Route path='/additems' element={<AddInventoryItems />}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
-      
+      <Footer/>
     </div>
   );
 }

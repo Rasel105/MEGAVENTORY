@@ -122,6 +122,7 @@ const Navbar = () => {
                         }
                     </div>
                 </div>
+                <ToastContainer/>
             </nav>
         </>
 
