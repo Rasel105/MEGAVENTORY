@@ -34,21 +34,19 @@ const Login = () => {
         // console.log(email, password)
         signInWithEmailAndPassword(email, password);
     };
-
-    const handleResetPassword = async e => {
+    
+    const handleResetPassword = async (e) => {
         const email = e.target.email.value;
-        if(email){
+        if (email) {
             await sendPasswordResetEmail(email);
-            toast.success("Email sent", {
-                toastId: 'success1',
-            });
+            toast('Please check your email');
         }
-        else{
-            toast.error("Please enter your email first", {
-                toastId: 'success1',
-            }); 
+        else {
+            toast('Enter email first');
         }
     }
+
+
 
     if (user) {
         navigate(from, { replace: true });
@@ -80,6 +78,7 @@ const Login = () => {
             });
             break;
     };
+
 
     return (
         <div className="container mx-auto min-h-screen">
