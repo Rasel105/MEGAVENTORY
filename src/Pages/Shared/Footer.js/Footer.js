@@ -26,7 +26,6 @@ const Footer = () => {
             <span className="block text-sm text-gray-500 text-center dark:text-gray-400"> <p> &copy; {currentDate} All Rights Reserved.</p>
             </span>
         </footer>
-
     );
 };
 

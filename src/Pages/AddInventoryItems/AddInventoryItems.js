@@ -34,7 +34,7 @@ const AddInventoryItems = () => {
 
     return (
         <>
-            <h3 className='text-center text-3xl my-1 text-green-400 underline'>Add new products</h3>
+            <h3 className='text-center text-3xl my-3 text-gray-700'>Add <span className='text-green-400'>new</span> products</h3>
             <div className='border-2 p-3 my-5 container sm:p-3 sm:w-full md:w-5/12 mx-auto bg-slate-300 rounded-xl'>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
                     <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>

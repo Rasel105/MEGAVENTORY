@@ -6,7 +6,7 @@ const InventoryCards = () => {
     const [products] = useAllProducts();
     return (
         <div className='container w-full mx-auto '>
-            <h3 className='text-center text-3xl my-2 underline text-lime-500'>Inventory Products List</h3>
+            <h3 className='text-center text-3xl my-4 text-gray-700'>Top <span className='text-green-400'>Sale</span> Products</h3>
             <div className='grid md:grid-cols-3 gap-5 px-5 sm:grid-cols-1'>
                 {
                     products.slice(0, 6).map(product => <InventoryCard
