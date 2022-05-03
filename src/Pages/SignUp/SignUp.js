@@ -29,7 +29,9 @@ const SignUp = () => {
             createUserWithEmailAndPassword(email, password);
         }
         else {
-            toast("Password don't matched");
+            toast.error("Password don't matched", {
+                toastId: 'success1',
+            });
         }
     };
 
@@ -37,27 +39,12 @@ const SignUp = () => {
         default:
             // error.message = 'Internal Error'
             break;
-        case 'auth/user-not-found':
-            toast.error('Use not found', {
-                toastId: 'success1',
-            });
-            break;
         case 'auth/email-already-exists':
             toast.error('Email already exists', {
                 toastId: 'success1',
             });
             break;
-        case 'auth/invalid-email':
-            toast.error('Invalid email', {
-                toastId: 'success1',
-            });
-            break;
-        case 'auth/wrong-password':
-            toast.error('wrong-password', {
-                toastId: 'success1',
-            });
-            break;
-    }
+    }; 
 
     if (loading) {
         return <Loading />
@@ -136,7 +123,11 @@ const SignUp = () => {
                                     Login!
                                 </Link>
                             </div>
-                            <p className='text-center'>or</p>
+                            <div className='flex'>
+                                <div className='border'></div>
+                                <p className='text-center'>or</p>
+                                <div className='border'></div>
+                            </div>
                             {/* <div className="text-center">
                                 <button
                                     className="w-full flex justify-evenly items-center px-4 py-2 font-bold text-black rounded-full border-2 bg-white focus:outline-none focus:shadow-outline"

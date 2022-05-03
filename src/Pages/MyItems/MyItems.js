@@ -1,26 +1,42 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init.js'
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const email = user.email;
         const url = `http://localhost:5000/myitems?email=${email}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setMyItems(data);
-            });
+        try {
+            fetch(url, {
+                headers: {
+                    "authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    setMyItems(data);
+                });
+        }
+        catch (error) {
+            console.log(error.message);
+            if (error.response.status === 403 || error.response.status === 401) {
+                signOut(auth);
+                navigate('/login');
+            }
+        }
     }, [user]);
 
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/myitem/${id }`, {
+            fetch(`http://localhost:5000/myitem/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -28,12 +44,12 @@ const MyItems = () => {
                     console.log(data);
                 });
         };
-        
+
     };
 
     return (
         <div className=''>
-            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-teal-500 '>Items {myItems.length}</span></h2>
+            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text--500 '>Items {myItems.length}</span></h2>
             <div className="container sm:w-full md:w-1/2 mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

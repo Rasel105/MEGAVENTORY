@@ -15,6 +15,7 @@ const Navbar = () => {
     if (loading) {
         return <Loading />
     }
+    
     const handleSignOut = () => {
         signOut(auth);
         toast.success("Sign Out", {

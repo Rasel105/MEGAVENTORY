@@ -21,20 +21,38 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    // console.log(error);
+
     const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth);
 
     if (loading || sending) {
         return <Loading />
     };
 
-    const handleLogin = (e) => {
+    const handleLogin = async e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         // console.log(email, password)
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+
+        // const data = { username: 'example' };
+
+        fetch('http://localhost:5000/login', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email}),
+        })
+            .then(response => response.json())
+            .then(data => {
+                localStorage.setItem('accessToken', data.accessToken);
+                navigate(from, { replace: true });
+                console.log('Success:', data);
+            })
     };
-    
+
     const handleResetPassword = async (e) => {
         const email = e.target.email.value;
         if (email) {
@@ -46,10 +64,8 @@ const Login = () => {
         }
     }
 
-
-
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     };
 
     // let errorTag;
