@@ -71,7 +71,7 @@ const RecentTranscations = () => {
                                        {transaction.brand}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <p className='bg-teal-400 text-center py-1 rounded'> {transaction.status}</p>
+                                        <p className='bg-red-400 text-white text-center py-1 rounded'> {transaction.status}</p>
                                     </td>
                                 </tr>
                             )}

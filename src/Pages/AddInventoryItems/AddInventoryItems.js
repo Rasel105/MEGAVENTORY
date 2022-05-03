@@ -34,7 +34,7 @@ const AddInventoryItems = () => {
 
     return (
         <>
-            <h3 className='text-center text-3xl my-3 text-gray-700'>Add <span className='text-green-400'>new</span> products</h3>
+            <h3 className='text-center text-3xl my-3 text-gray-700'>Add <span className='text-teal-500'>new</span> products</h3>
             <div className='border-2 p-3 my-5 container sm:p-3 sm:w-full md:w-5/12 mx-auto bg-slate-300 rounded-xl'>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
                     <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
@@ -52,7 +52,7 @@ const AddInventoryItems = () => {
                     <label className="block mb-2 text-sm font-bold text-gray-700">Description</label>
                     <textarea className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Description' type="text" {...register("description", { required: true })} />
                     <div className='flex justify-end'>
-                        <button className='bg-lime-500 py-2 px-4 mt-2 rounded-lg text-xl mx-2 text-white' type='submit'>
+                        <button className='bg-teal-500 py-2 px-4 mt-2 rounded-lg text-xl mx-2 text-white' type='submit'>
                             Add
                             <BiAddToQueue className='inline ml-2' />
                         </button>

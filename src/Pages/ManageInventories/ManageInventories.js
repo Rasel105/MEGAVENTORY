@@ -22,7 +22,7 @@ const ManageInventories = () => {
     return (
         <>
             <div className='container flex justify-end'>
-                <Link to='/additems' className='py-2 px-3 my-3 mr-2 bg-lime-500 rounded-lg text-xl text-white'>Add new item
+                <Link to='/additems' className='py-2 px-3 my-3 mr-2 bg-teal-500 rounded-lg text-xl text-white'>Add item
                 <BiAddToQueue className="inline m-2"/>
                 </Link>
             </div>
