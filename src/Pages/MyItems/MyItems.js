@@ -50,7 +50,7 @@ const MyItems = () => {
 
     return (
         <div className=''>
-            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-teal-400'>Items </span>{myItems.length} </h2>
+            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-sky-400'>Items </span>{myItems.length} </h2>
             <div className="container sm:w-full md:w-2/3 mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
