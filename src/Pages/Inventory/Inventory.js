@@ -55,6 +55,7 @@ const Inventory = () => {
                 <img className="rounded-t-lg" src={product.img} alt="" />
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.product_name}</h5>
+                    <h5 className='text-xs'>ID: {product._id}</h5>
                     <h5 className='text-2xl'>Price: ${product.price}</h5>
                     <h5 className='text-xl'>Sold: {product.sold}/pcs</h5>
                     <h5 className='text-xl mb-2'>Supplier: {product.supplier_name}</h5>
