@@ -18,17 +18,15 @@ const MyItems = () => {
                     "authorization": `Bearer ${localStorage.getItem("accessToken")}`,
                 }
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
+                .then(res => res.json()).then(data => {
                     setMyItems(data);
-                });
+                })
         }
         catch (error) {
-            console.log(error.message);
-            if (error.response.status === 403 || error.response.status === 401) {
+            console.log(error.response.status);
+            if (error.response.status === 401 || error.response.status === 403) {
                 signOut(auth);
-                navigate('/login');
+                navigate('/login')
             }
         }
     }, [user]);

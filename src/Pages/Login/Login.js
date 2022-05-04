@@ -7,7 +7,7 @@ import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import loginImage from '../../images/formImages/login.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const axios = require('axios').default;
 
 const Login = () => {
     const navigate = useNavigate();
@@ -36,21 +36,23 @@ const Login = () => {
         // console.log(email, password)
         await signInWithEmailAndPassword(email, password);
 
-        // const data = { username: 'example' };
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
 
-        fetch('http://localhost:5000/login', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({email}),
-        })
-            .then(response => response.json())
-            .then(data => {
-                localStorage.setItem('accessToken', data.accessToken);
-                navigate(from, { replace: true });
-                console.log('Success:', data);
-            })
+        // fetch('http://localhost:5000/login', {
+        //     method: 'POST', // or 'PUT'
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ email }),
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         localStorage.setItem('accessToken', data.accessToken);
+        //         navigate(from, { replace: true });
+        //         console.log('Success:', data);
+        //     })
     };
 
     const handleResetPassword = async (e) => {
