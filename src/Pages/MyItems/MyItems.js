@@ -11,7 +11,7 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user.email;
-        const url = `http://localhost:5000/myitems?email=${email}`;
+        const url = `https://thawing-everglades-09724.herokuapp.com/myitems?email=${email}`;
         try {
             fetch(url, {
                 headers: {
@@ -34,7 +34,7 @@ const MyItems = () => {
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/myitem/${id}`, {
+            fetch(`https://thawing-everglades-09724.herokuapp.com/myitem/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -47,7 +47,7 @@ const MyItems = () => {
 
     return (
         <div className=''>
-            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text--500 '>Items {myItems.length}</span></h2>
+            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-teal-400'>Items </span>{myItems.length} </h2>
             <div className="container sm:w-full md:w-1/2 mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

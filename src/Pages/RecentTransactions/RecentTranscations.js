@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const RecentTranscations = () => {
     const [transactions, setTransactions] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/transactions')
+        fetch('https://thawing-everglades-09724.herokuapp.com/transactions')
             .then(res => res.json())
             .then(data => setTransactions(data));
     }, [])

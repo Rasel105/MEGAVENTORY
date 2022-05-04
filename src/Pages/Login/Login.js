@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -12,6 +12,7 @@ const axios = require('axios').default;
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const emailRef = useRef('');
 
     const from = location.state?.from?.pathname || '/';
     const [
@@ -23,11 +24,13 @@ const Login = () => {
 
     // console.log(error);
 
-    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     if (loading || sending) {
         return <Loading />
     };
+
+
 
     const handleLogin = async e => {
         e.preventDefault();
@@ -36,11 +39,11 @@ const Login = () => {
         // console.log(email, password)
         await signInWithEmailAndPassword(email, password);
 
-        const {data} = await axios.post('http://localhost:5000/login', {email});
+        const { data } = await axios.post('https://thawing-everglades-09724.herokuapp.com/login', { email });
         localStorage.setItem('accessToken', data.accessToken);
-        navigate(from, { replace: true });
 
-        // fetch('http://localhost:5000/login', {
+
+        // fetch('https://thawing-everglades-09724.herokuapp.com/login', {
         //     method: 'POST', // or 'PUT'
         //     headers: {
         //         'Content-Type': 'application/json',
@@ -55,23 +58,30 @@ const Login = () => {
         //     })
     };
 
-    const handleResetPassword = async (e) => {
-        const email = e.target.email.value;
+    const resetPassword = () => {
+        const email = emailRef.current.value;
         if (email) {
-            await sendPasswordResetEmail(email);
-            toast('Please check your email');
+            sendPasswordResetEmail(email);
+            toast.error('Please, Check your email.', {
+                toastId: 'success1',
+            });
         }
         else {
-            toast('Enter email first');
+            toast.error('Please, Provide your email.',{
+                toastId: 'success1',
+            });
         }
-    }
-
-    if (user) {
-        // navigate(from, { replace: true });
     };
 
+    if (user) {
+        navigate(from, { replace: true });
+        toast.success('Login successfull',{
+            toastId: 'success1',
+        });
+    }
+
     // let errorTag;
-    switch (error?.code || error1?.code) {
+    switch (error?.code) {
         default:
             // error.message = 'Internal Error'
             break;
@@ -115,6 +125,7 @@ const Login = () => {
                                 <input
                                     className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     name="email"
+                                    ref={emailRef}
                                     type="email"
                                     placeholder="Your email"
                                 />
@@ -133,12 +144,13 @@ const Login = () => {
                             <div className="mb-7 flex justify-between">
                                 <div>
                                     <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-                                    <label className="text-sm" htmlFor="checkbox_id">
+                                    <label className="text-sm">
                                         Remember Me
                                     </label>
                                 </div>
                                 <div className="text-center">
-                                    <button onClick={handleResetPassword}
+                                    <button
+                                        onClick={resetPassword}
                                         className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                                     >
                                         Forgot Password?
