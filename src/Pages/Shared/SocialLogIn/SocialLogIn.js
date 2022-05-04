@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../Loading/Loading';
 import google from '../../../images/google/google2.png'
@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SocialLogIn = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate();
     const handleSignInWithGoogle = () => {
         signInWithGoogle();
@@ -33,7 +35,7 @@ const SocialLogIn = () => {
     };
 
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true });
     };
     return (
         <div className="text-center mb-3">
