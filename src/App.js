@@ -12,6 +12,7 @@ import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
 import MyItems from './Pages/MyItems/MyItems';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer.js/Footer';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -38,9 +39,10 @@ function App() {
         }>
         </Route>
         <Route path='/additems' element={<AddInventoryItems />}></Route>
-        <Route path='*' element={<NotFound/>}></Route>
+        <Route path='blogs' element={<Blogs />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

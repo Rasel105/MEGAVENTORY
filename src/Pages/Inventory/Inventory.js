@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 
 const Inventory = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState([]);
+    console.log(product)
     const { register, handleSubmit } = useForm();
     useEffect(() => {
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`)
@@ -55,7 +56,8 @@ const Inventory = () => {
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.product_name}</h5>
                     <h5 className='text-2xl'>Price: ${product.price}</h5>
-                    <h5 className='text-xl mb-3'>Sold: {product.sold}/pcs</h5>
+                    <h5 className='text-xl'>Sold: {product.sold}/pcs</h5>
+                    <h5 className='text-xl mb-2'>Supplier: {product.supplier_name}</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
                     <div className='flex justify-between items-center'>
                         <h5 className='text-2xl'>Quantity: {product.quantity}/pcs</h5>

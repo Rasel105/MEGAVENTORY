@@ -78,6 +78,13 @@ const Navbar = () => {
                                         My Items
                                     </Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link to="/blogs"
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    >
+                                        Blogs
+                                    </Link>
+                                </li>
                                 <button onClick={handleSignOut} className="p-2 ml-2 bg-white text-sky-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Sign Out</button>
 
                             </ul> : <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
