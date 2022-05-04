@@ -20,7 +20,7 @@ const InventoryCard = ({ product }) => {
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400" title={description}>{description.slice(0, 120)}...</p>
                 <div className='flex justify-between items-center'>
                     <h5 className='text-2xl text-gray-700'>Quantity: {quantity}/pcs</h5>
-                    <button onClick={() => navigateToInventory(_id)} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <button onClick={() => navigateToInventory(_id)} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-sky-500/100 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Manage
                         <HiArrowSmRight size={25}/>
                     </button>

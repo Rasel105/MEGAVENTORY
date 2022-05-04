@@ -10,7 +10,7 @@ const RecentTranscations = () => {
 
     return (
         <div className='w-full mx-auto container'>
-            <h2 className='text-2xl ml-6 mt-7 '><span className='text-orange-400 text-4xl'>Recent </span>Transactions</h2>
+            <h2 className='text-2xl ml-6 mt-7 '><span className='text-sky-400 text-4xl'>Recent </span>Transactions</h2>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <div className="p-4">
                     <label htmlFor="table-search" className="sr-only">Search</label>

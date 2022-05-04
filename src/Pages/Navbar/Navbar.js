@@ -78,7 +78,7 @@ const Navbar = () => {
                                         My Items
                                     </Link>
                                 </li>
-                                <button onClick={handleSignOut} className="p-2 ml-2 bg-white text-teal-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Sign Out</button>
+                                <button onClick={handleSignOut} className="p-2 ml-2 bg-white text-sky-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Sign Out</button>
 
                             </ul> : <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                                 <li className="nav-item">

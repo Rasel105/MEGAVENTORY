@@ -60,6 +60,11 @@ const Login = () => {
 
     const resetPassword = () => {
         const email = emailRef.current.value;
+        // if (!email) {
+        //     toast.error('Please, provide a your fogetted email', {
+        //         toastId: 'success1',
+        //     });
+        // }
         if (email) {
             sendPasswordResetEmail(email);
             toast.error('Please, Check your email.', {
@@ -67,7 +72,7 @@ const Login = () => {
             });
         }
         else {
-            toast.error('Please, Provide your email.',{
+            toast.error('Please, provide your forgot email', {
                 toastId: 'success1',
             });
         }
@@ -75,7 +80,7 @@ const Login = () => {
 
     if (user) {
         navigate(from, { replace: true });
-        toast.success('Login successfull',{
+        toast.success('Login successfull', {
             toastId: 'success1',
         });
     }
@@ -120,24 +125,26 @@ const Login = () => {
                         <form onSubmit={handleLogin} className="px-8 pt-3 pb-8 mb-4 bg-white rounded">
                             <div className="mb-4">
                                 <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
-                                    Email
+                                    Email <span className='text-red-600'>*</span>
                                 </label>
                                 <input
                                     className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     name="email"
                                     ref={emailRef}
                                     type="email"
+                                    required
                                     placeholder="Your email"
                                 />
                             </div>
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
-                                    Password
+                                    Password <span className='text-red-600'>*</span>
                                 </label>
                                 <input
                                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     name="password"
                                     type="password"
+                                    required
                                     placeholder="******************"
                                 />
                             </div>
