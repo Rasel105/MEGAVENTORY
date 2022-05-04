@@ -10,17 +10,11 @@ const Blogs = () => {
                         <div className='flex justify-between items-center'>
                             <p>
                                 Javasctipt: Javascript is a programming Language that is used for writting  script on the website
-                                <br />
                                 Node: Node JS is a runtime environment.
-                                <br />
                                 Javascript: Javasctript is just run in the browser.
-                                <br />
                                 Node: Node use server side.
-                                <br />
                                 Javascript: Javascript can perform 
-                                <br />
                                 Node: V8 is the Javascript engine inside of node.
-                                <br />
                                 JS: Javascript is used in frontend development.
                                 Node: Nodejs is written in C, C++ and Javascript.   
                             </p>

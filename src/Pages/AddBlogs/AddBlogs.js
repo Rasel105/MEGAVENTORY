@@ -7,7 +7,6 @@ import { BiAddToQueue } from "react-icons/bi";
 const AddBlogs = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-
         fetch('https://thawing-everglades-09724.herokuapp.com/blog', {
             method: 'POST',
             headers: {
@@ -33,7 +32,7 @@ const AddBlogs = () => {
                         <label className="block mb-2 text-sm font-bold text-gray-700">Blog Title</label>
                         <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' type="text" placeholder='Blog Title' {...register("title", { required: true })} />
                         <label className="block mb-2 text-sm font-bold text-gray-700">Blog Details</label>
-                        <textarea className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Blog Details' type="text" {...register("Blog_details", { required: true })} />
+                        <textarea className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' placeholder='Blog Details' type="text" {...register("blogdetails", { required: true })} />
                         <div className='flex justify-end'>
                             <button className='bg-sky-500/100 hover:bg-blue-800 py-2 px-4 mt-2 rounded-lg text-xl mx-2 text-white' type='submit'>
                                 Add Blogs
