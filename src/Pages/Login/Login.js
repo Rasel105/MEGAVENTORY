@@ -166,10 +166,10 @@ const Login = () => {
                                     Login
                                 </button>
                             </div>
-                            <div className='flex flex-row justify-center mb-2'>
-                                <div className='border-2'></div>
-                                <p className='text-center'>or</p>
-                                <div className='border-2'></div>
+                            <div className='flex items-center justify-center my-2'>
+                                <div className='border-2 w-1/2'></div>
+                                <p className='text-center mx-2'>or</p>
+                                <div className='border-2 w-1/2'></div>
                             </div>
 
                             {/* <div className="text-center mb-3">

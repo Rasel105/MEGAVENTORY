@@ -44,7 +44,7 @@ const SignUp = () => {
                 toastId: 'success1',
             });
             break;
-    }; 
+    };
 
     if (loading) {
         return <Loading />
@@ -123,10 +123,10 @@ const SignUp = () => {
                                     Login!
                                 </Link>
                             </div>
-                            <div className='flex'>
-                                <div className='border'></div>
-                                <p className='text-center'>or</p>
-                                <div className='border'></div>
+                            <div className='flex items-center justify-center my-2'>
+                                <div className='border-2 w-1/2'></div>
+                                <p className='text-center mx-2'>or</p>
+                                <div className='border-2 w-1/2'></div>
                             </div>
                             {/* <div className="text-center">
                                 <button
