@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { HiArrowSmRight } from "react-icons/hi";
-import imgaa from '../../../images/images/dell-2.png'
- 
+
 
 const InventoryCard = ({ product }) => {
-    const {_id, product_name, img, description, price, quantity, supplier_name } = product;
+    const { _id, product_name, img, description, price, quantity, supplier_name } = product;
     const navigate = useNavigate();
     const navigateToInventory = (id) => {
         navigate(`/inventory/${id}`);
@@ -22,7 +21,7 @@ const InventoryCard = ({ product }) => {
                     <h5 className='text-2xl text-gray-700'>Quantity: {quantity}/pcs</h5>
                     <button onClick={() => navigateToInventory(_id)} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-sky-500/100 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Manage
-                        <HiArrowSmRight size={25}/>
+                        <HiArrowSmRight size={25} />
                     </button>
                 </div>
             </div>
