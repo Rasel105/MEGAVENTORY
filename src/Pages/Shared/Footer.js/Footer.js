@@ -5,7 +5,7 @@ const Footer = () => {
     const data = new Date()
     const currentDate = data.getFullYear();
     return (
-        <footer className="p-4 bg-gray-200 shadow md:px-6 md:py-8 dark:bg-gray-800 mt-5">
+        <footer className="p-4 bg-gray-200 shadow md:px-6 md:py-8 dark:bg-gray-800 mt-14">
             <div className="sm:flex sm:justify-between">
                 <Link to="/" className="flex items-center mb-4 sm:mb-0">
                     <span className="self-center sm:self-center text-2xl font-semibold dark:text-white">Megaventory</span>
