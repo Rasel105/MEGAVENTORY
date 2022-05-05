@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading/Loading';
 import { signOut } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,12 +9,9 @@ import { HiMenu } from "react-icons/hi";
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
-    if (loading) {
-        return <Loading />
-    }
-    
+
     const handleSignOut = () => {
         signOut(auth);
         toast.success("Sign Out", {
@@ -113,7 +109,7 @@ const Navbar = () => {
                         }
                     </div>
                 </div>
-                <ToastContainer/>
+                <ToastContainer />
             </nav>
         </>
 
