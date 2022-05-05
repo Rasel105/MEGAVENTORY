@@ -7,7 +7,7 @@ import { BiAddToQueue } from "react-icons/bi";
 const AddBlogs = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        fetch('https://thawing-everglades-09724.herokuapp.com/blog', {
+        fetch('http://localhost:5000/blog', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -20,7 +20,6 @@ const AddBlogs = () => {
                     toastId: 'success1',
                 });
                 e.target.reset();
-                console.log('Success:', data);
             })
     };
     return (

@@ -1,7 +1,5 @@
-import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../firebase.init.js'
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,34 +8,21 @@ import { AiFillDelete } from "react-icons/ai";
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
-    const navigate = useNavigate();
-
+   
     useEffect(() => {
-        const email = user.email;
-        const url = `https://thawing-everglades-09724.herokuapp.com/myitems?email=${email}`;
-        try {
-            fetch(url, {
-                headers: {
-                    "authorization": `Bearer ${localStorage.getItem("accessToken")}`,
-                }
-            })
-                .then(res => res.json()).then(data => {
-                    setMyItems(data);
-                })
-        }
-        catch (error) {
-            console.log(error.response.status);
-            if (error.response.status === 401 || error.response.status === 403) {
-                signOut(auth);
-                navigate('/login');
-            }
-        }
-    }, [user, myItems]);
+        const email = user?.email;
+        const url = `http://localhost:5000/myitems?email=${email}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            setMyItems(data)
+        })
+    }, [myItems, user]);
 
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`https://thawing-everglades-09724.herokuapp.com/myitem/${id}`, {
+            fetch(`http://localhost:5000/myitem/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
