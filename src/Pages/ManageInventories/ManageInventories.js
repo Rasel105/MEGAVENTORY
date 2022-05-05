@@ -10,7 +10,7 @@ const ManageInventories = () => {
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -19,7 +19,7 @@ const ManageInventories = () => {
                 })
         }
     }
-
+    
     return (
         <>
             <div className='container flex justify-end'>

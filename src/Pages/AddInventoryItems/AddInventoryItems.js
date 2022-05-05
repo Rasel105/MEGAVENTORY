@@ -14,7 +14,7 @@ const AddInventoryItems = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
         
-        fetch('http://localhost:5000/product', {
+        fetch('https://thawing-everglades-09724.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

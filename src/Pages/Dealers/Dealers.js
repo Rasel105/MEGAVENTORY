@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Dealers = () => {
     const [dealers, setDealers] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/dealers`)
+        fetch(`https://thawing-everglades-09724.herokuapp.com/dealers`)
             .then(res => res.json())
             .then(data => setDealers(data));
     }, [])

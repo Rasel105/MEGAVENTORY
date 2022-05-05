@@ -11,7 +11,7 @@ const MyItems = () => {
    
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/myitems?email=${email}`;
+        const url = `https://thawing-everglades-09724.herokuapp.com/myitems?email=${email}`;
         fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -22,7 +22,7 @@ const MyItems = () => {
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/myitem/${id}`, {
+            fetch(`https://thawing-everglades-09724.herokuapp.com/myitem/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
