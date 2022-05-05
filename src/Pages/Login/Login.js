@@ -37,29 +37,11 @@ const Login = () => {
         const password = e.target.password.value;
         // console.log(email, password)
         await signInWithEmailAndPassword(email, password);
-
-        // fetch('https://thawing-everglades-09724.herokuapp.com/login', {
-        //     method: 'POST', // or 'PUT'
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ email }),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         localStorage.setItem('accessToken', data.accessToken);
-        //         navigate(from, { replace: true });
-        //         console.log('Success:', data);
-        //     })
     };
 
     const resetPassword = () => {
         const email = emailRef.current.value;
-        // if (!email) {
-        //     toast.error('Please, provide a your fogetted email', {
-        //         toastId: 'success1',
-        //     });
-        // }
+
         if (email) {
             sendPasswordResetEmail(email);
             toast.error('Please, Check your email.', {

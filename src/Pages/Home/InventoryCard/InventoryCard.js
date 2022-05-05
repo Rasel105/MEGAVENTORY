@@ -6,9 +6,11 @@ import { HiArrowSmRight } from "react-icons/hi";
 const InventoryCard = ({ product }) => {
     const { _id, product_name, img, description, price, quantity, supplier_name } = product;
     const navigate = useNavigate();
+
     const navigateToInventory = (id) => {
         navigate(`/inventory/${id}`);
     };
+    
     return (
         <div className="max-w-sm mx-auto items-center justify-center bg-white rdounde-lg border rounded-lg my-2 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <img className="rounded-t-lg" src={img} alt="" />

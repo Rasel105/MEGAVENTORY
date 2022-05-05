@@ -1,12 +1,13 @@
 import React from 'react';
 import useAllProducts from '../../hooks/useAllProducts';
 import { BiAddToQueue } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiFillDelete } from "react-icons/ai";
+import { HiPencilAlt } from "react-icons/hi";
 
 const ManageInventories = () => {
     const [products] = useAllProducts();
-
+    const navigate = useNavigate()
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
@@ -19,7 +20,11 @@ const ManageInventories = () => {
                 })
         }
     }
-    
+
+    const navigateToInventory = (id) => {
+        navigate(`/inventory/${id}`);
+    };
+
     return (
         <>
             <div className='container flex justify-end'>
@@ -63,8 +68,9 @@ const ManageInventories = () => {
                                 <td className="px-6 py-4">
                                     {product.supplier_name}
                                 </td>
-                                <td className="px-6 py-4">
-                                    <button onClick={() => handleProductDelete(product._id)} href="#" className="font-medium bg-red-400 py-2 px-3 rounded text-white">Delete  <AiFillDelete className='inline' size={20} /></button>
+                                <td className="px-6 py-4 m-2">
+                                    <button onClick={() => handleProductDelete(product._id)} className="font-medium bg-red-400 py-2 px-2 m-2 rounded text-white">Delete  <AiFillDelete className='inline' size={20} /></button>
+                                    <button onClick={() => navigateToInventory(product._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update  <HiPencilAlt className='inline' size={20} /></button>
                                 </td>
                             </tr>
 

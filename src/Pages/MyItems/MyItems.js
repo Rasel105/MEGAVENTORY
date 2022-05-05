@@ -4,10 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../firebase.init.js'
 import 'react-toastify/dist/ReactToastify.css';
 import { AiFillDelete } from "react-icons/ai";
+import { HiPencilAlt } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
+    const navigate = useNavigate();
    
     useEffect(() => {
         const email = user?.email;
@@ -35,9 +38,14 @@ const MyItems = () => {
 
     };
 
+    const navigateToInventory = (id) => {
+        navigate(`/inventory/${id}`);
+    };
+
+
     return (
         <div className=''>
-            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-teal-400'>Items </span>{myItems.length} </h2>
+            <h2 className='text-4xl mx-8 text-center my-2'>My <span className='text-sky-500/100'>Items </span>{myItems.length} </h2>
             <div className="container sm:w-full md:w-4/6 mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -54,7 +62,7 @@ const MyItems = () => {
                             <th scope="col" className="px-6 py-3">
                                 Supplier
                             </th>
-                            <th scope='col' className='px-6 py-3'>
+                            <th scope='col' className='px-6 py-3 text-center'>
                                 Action
                             </th>
                         </tr>
@@ -75,7 +83,8 @@ const MyItems = () => {
                                     {item.supplier_name}
                                 </td>
                                 <td className="px-6 py-4">
-                                    <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 rounded text-white">Delete <AiFillDelete className='inline' size={20}/></button>
+                                    <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 m-2 rounded text-white">Delete <AiFillDelete className='inline' size={20}/></button>
+                                    <button onClick={() => navigateToInventory(item._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update <HiPencilAlt className='inline' size={20}/></button>
                                 </td>
                             </tr>
 
