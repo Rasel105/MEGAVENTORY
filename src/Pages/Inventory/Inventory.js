@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 const Inventory = () => {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
-    console.log(product)
     const { register, handleSubmit } = useForm();
     useEffect(() => {
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`)
@@ -13,7 +12,9 @@ const Inventory = () => {
             .then(data => {
                 setProduct(data);
             })
-    }, [product]);
+    }, [id, product]);
+
+
 
     const handleDelivered = id => {
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
@@ -31,7 +32,7 @@ const Inventory = () => {
 
     const handleStockUpdate = (data, event) => {
         const quantity = parseInt(product.quantity) + parseInt(data.quantity);
-        if(quantity < 0){
+        if (quantity < 0) {
             return;
         }
         // console.log(quantity);
@@ -40,7 +41,7 @@ const Inventory = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({quantity}),
+            body: JSON.stringify({ quantity }),
         })
             .then(response => response.json())
             .then(data => {

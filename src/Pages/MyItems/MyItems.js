@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../firebase.init.js'
 import 'react-toastify/dist/ReactToastify.css';
+import { AiFillDelete } from "react-icons/ai";
+
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
@@ -88,7 +90,7 @@ const MyItems = () => {
                                     {item.supplier_name}
                                 </td>
                                 <td className="px-6 py-4">
-                                    <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 rounded text-white">Delete</button>
+                                    <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 rounded text-white">Delete <AiFillDelete className='inline' size={20}/></button>
                                 </td>
                             </tr>
 

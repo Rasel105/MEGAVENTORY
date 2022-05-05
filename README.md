@@ -9,7 +9,7 @@ The name of the project is  [MEGAVENTORY](https://assignment-0011.web.app/)
 * The MEGAVENTORY project we use for the Backend some of Technology like MongoDB, nodeJS, expressJS, cors, dotenv and so on.
 * and for the deployment we use Firebase for the Frontend and for the Backend we use Heroku.
 
-## Let's move on the project overview. 
+## Let's move on the project overview. `
 
 * First of at the top of the Inventory site, I have a header. If user is not login. the has three button like Home/Megaventory, Login and Register
 * When user log in the navbar has  8 button. Megaventory, Home, ManageItems, add items, My Items, Blogs, add blogs and signout, 
