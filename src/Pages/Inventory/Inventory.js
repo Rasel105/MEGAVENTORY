@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Inventory = () => {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
-    
+
     useEffect(() => {
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`)
             .then(res => res.json())
@@ -12,8 +14,6 @@ const Inventory = () => {
                 setProduct(data);
             })
     }, [id, product]);
-
-
 
     const handleDelivered = id => {
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
@@ -47,7 +47,9 @@ const Inventory = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                toast.success('Quantity added', {
+                    toastId: 'success1',
+                });
                 event.target.reset();
             });
     };
@@ -81,6 +83,7 @@ const Inventory = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
