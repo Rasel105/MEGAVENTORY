@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 
 const Inventory = () => {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
-    const { register, handleSubmit } = useForm();
+    
     useEffect(() => {
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`)
             .then(res => res.json())
@@ -30,12 +29,15 @@ const Inventory = () => {
             });
     };
 
-    const handleStockUpdate = (data, event) => {
-        const quantity = parseInt(product.quantity) + parseInt(data.quantity);
-        if (quantity < 0) {
+    const handleStockUpdate = (event) => {
+
+        event.preventDefault();
+        const value = event.target.quantity.value;
+        if (value < 0 || value === null || value === '') {
             return;
         }
-        // console.log(quantity);
+        const quantity = parseInt(product.quantity) + parseInt(value);
+        // const quantity = event.target.quantity.value;
         fetch(`https://thawing-everglades-09724.herokuapp.com/insertProduct/${id}`, {
             method: 'PUT',
             headers: {
@@ -71,10 +73,10 @@ const Inventory = () => {
                 </div>
             </div>
             <div className='md:mt-40 mx-auto md:col-span-6'>
-                <form onSubmit={handleSubmit(handleStockUpdate)}>
+                <form onSubmit={handleStockUpdate}>
                     <div className='flex flex-col'>
                         <label className='block text-3xl'>Restock Products</label>
-                        <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' {...register("quantity", { required: true })} />
+                        <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' name='quantity' />
                         <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock" />
                     </div>
                 </form>
