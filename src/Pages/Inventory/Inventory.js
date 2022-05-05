@@ -16,6 +16,11 @@ const Inventory = () => {
     }, [id, product]);
 
     const handleDelivered = id => {
+
+        if(product.quantity <= 0 ){
+            return
+        }
+        
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
             method: 'PUT',
             headers: {
@@ -25,7 +30,9 @@ const Inventory = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                toast.success('Delivered', {
+                    toastId: 'success1',
+                });
             });
     };
 
