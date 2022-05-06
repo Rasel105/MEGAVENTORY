@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HiMenu } from "react-icons/hi";
+import CustomLink from '../CustomLink/CustomLink'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -47,46 +48,46 @@ const Navbar = () => {
                         {
                             user ? <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                                 <li className="nav-item">
-                                    <Link to='/'
+                                    <CustomLink to='/'
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     >
                                         Home
-                                    </Link>
+                                    </CustomLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to='/manageInventories'
+                                    <CustomLink to='/manageInventories'
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     >
                                         Manage Items
-                                    </Link>
+                                    </CustomLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/additems"
+                                    <CustomLink to="/additems"
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     >
                                         Add Item
-                                    </Link>
+                                    </CustomLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/myitems"
+                                    <CustomLink to="/myitems"
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     >
                                         My Items
-                                    </Link>
+                                    </CustomLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/blogs"
+                                    <CustomLink to="/blogs"
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     >
                                         Blogs
-                                    </Link>
+                                    </CustomLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/blog"
+                                    <CustomLink to="/blog"
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                     >
                                         Add Blog
-                                    </Link>
+                                    </CustomLink>
                                 </li>
                                 <button onClick={handleSignOut} className="p-2 ml-2 bg-white text-sky-500 font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" >Sign Out</button>
 

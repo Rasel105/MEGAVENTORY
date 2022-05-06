@@ -11,7 +11,9 @@ const Blogs = () => {
     }, []);
     return (
         <>
+            <h2 className='text-4xl mx-8 text-center my-2'><span className='text-sky-500/100'>Blogs</span></h2>
             <div className='grid md:grid-cols-2 gap-5 px-5 sm:grid-cols-1'>
+
                 {
                     blogs.map(blog =>
                         <div key={blog._id} className="max-w-sm mx-auto items-center justify-center bg-white rdounde-lg border rounded-lg my-2 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">

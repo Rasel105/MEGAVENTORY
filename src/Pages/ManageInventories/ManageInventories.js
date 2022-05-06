@@ -27,12 +27,13 @@ const ManageInventories = () => {
 
     return (
         <>
-            <div className='container flex justify-end'>
+            <div className='container flex justify-between'>
+            <h2 className='text-4xl mx-8 text-center my-2'><span className='text-sky-500/100'>Manage </span>Items</h2>
                 <Link to='/additems' className='py-2 px-3 my-3 mr-2 bg-sky-500/100 rounded-lg text-xl text-white'>Add item
                     <BiAddToQueue className="inline m-2" />
                 </Link>
             </div>
-            <div className="container w-full mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
+            <div className="container md:w-9/12 mx-auto my-5  overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -48,7 +49,7 @@ const ManageInventories = () => {
                             <th scope="col" className="px-6 py-3">
                                 Supplier
                             </th>
-                            <th scope='col' className='px-6 py-3'>
+                            <th scope='col' className='px-6 py-3 text-center'>
                                 Action
                             </th>
                         </tr>
@@ -68,7 +69,7 @@ const ManageInventories = () => {
                                 <td className="px-6 py-4">
                                     {product.supplier_name}
                                 </td>
-                                <td className="px-6 py-4 m-2">
+                                <td className="px-6 py-4 m-2 flex">
                                     <button onClick={() => handleProductDelete(product._id)} className="font-medium bg-red-400 py-2 px-2 m-2 rounded text-white">Delete  <AiFillDelete className='inline' size={20} /></button>
                                     <button onClick={() => navigateToInventory(product._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update  <HiPencilAlt className='inline' size={20} /></button>
                                 </td>

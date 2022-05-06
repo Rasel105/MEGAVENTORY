@@ -82,7 +82,7 @@ const MyItems = () => {
                                 <td className="px-6 py-4">
                                     {item.supplier_name}
                                 </td>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 flex">
                                     <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 m-2 rounded text-white">Delete <AiFillDelete className='inline' size={20}/></button>
                                     <button onClick={() => navigateToInventory(item._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update <HiPencilAlt className='inline' size={20}/></button>
                                 </td>
