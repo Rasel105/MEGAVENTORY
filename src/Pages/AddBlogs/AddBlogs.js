@@ -41,11 +41,12 @@ const AddBlogs = () => {
                                 </button>
                             </div>
                         </form>
-                        <ToastContainer />
                     </div >
                 </>
             </Zoom>
+            <ToastContainer />
         </div>
+
     );
 };
 

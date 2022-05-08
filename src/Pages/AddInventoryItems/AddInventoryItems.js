@@ -58,9 +58,10 @@ const AddInventoryItems = () => {
                             </button>
                         </div>
                     </form>
-                    <ToastContainer />
+                    
                 </div >
             </Zoom>
+            <ToastContainer />
         </>
     );
 };

@@ -4,7 +4,9 @@ import { BiAddToQueue } from "react-icons/bi";
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillDelete } from "react-icons/ai";
 import { HiPencilAlt } from "react-icons/hi";
-import Rotate from 'react-reveal/Rotate';
+import Zoom from 'react-reveal/Zoom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageInventories = () => {
     const [products] = useAllProducts();
@@ -17,6 +19,9 @@ const ManageInventories = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    toast.success('Deleted successfully', {
+                        toastId: 'success1',
+                    });
                     // console.log(data);
                 })
         }
@@ -57,7 +62,7 @@ const ManageInventories = () => {
                     </thead>
                     {
                         products.map(product =>
-                            <Rotate>
+                            <Zoom>
                                 <tbody key={product._id}>
                                     <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -78,10 +83,11 @@ const ManageInventories = () => {
                                         </td>
                                     </tr>
                                 </tbody>
-                            </Rotate>
+                            </Zoom>
                         )}
                 </table>
             </div>
+            <ToastContainer />
         </>
 
     );
