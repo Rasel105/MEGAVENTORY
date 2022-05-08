@@ -32,7 +32,7 @@ const Inventory = () => {
         })
             .then(response => response.json())
             .then(data => {
-                toast.success('Delivered', {
+                toast.success(`Delivered ${product.product_name}`, {
                     toastId: 'success1',
                 });
             });
@@ -68,7 +68,7 @@ const Inventory = () => {
         })
             .then(response => response.json())
             .then(data => {
-                toast.success('Quantity added', {
+                toast.success(`${value} Quantity added.`, {
                     toastId: 'success1',
                 });
                 event.target.reset();
