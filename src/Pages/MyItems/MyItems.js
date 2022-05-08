@@ -20,7 +20,7 @@ const MyItems = () => {
 
         const getMyItems = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/myitems?email=${email}`;
+            const url = `https://thawing-everglades-09724.herokuapp.com/myitems?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -43,12 +43,12 @@ const MyItems = () => {
 
         getMyItems()
 
-    }, [user]);
+    }, [myItems, user]);
 
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/myitem/${id}`, {
+            fetch(`https://thawing-everglades-09724.herokuapp.com/myitem/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -113,10 +113,11 @@ const MyItems = () => {
                                         </td>
                                     </tr>
                                 </Zoom>
-                                <ToastContainer />
+
                             </tbody>
                         )}
                 </table>
+                <ToastContainer />
             </div>
         </div >
     );

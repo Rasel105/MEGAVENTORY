@@ -14,7 +14,7 @@ const ManageInventories = () => {
     const handleProductDelete = id => {
         const deleteConfirm = window.confirm("Delete Product?");
         if (deleteConfirm) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -62,8 +62,8 @@ const ManageInventories = () => {
                     </thead>
                     {
                         products.map(product =>
-                            <Zoom>
-                                <tbody key={product._id}>
+                            <tbody key={product._id}>
+                                <Zoom>
                                     <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             {product.product_name}
@@ -82,8 +82,8 @@ const ManageInventories = () => {
                                             <button onClick={() => navigateToInventory(product._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update  <HiPencilAlt className='inline' size={20} /></button>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </Zoom>
+                                </Zoom>
+                            </tbody>
                         )}
                 </table>
             </div>

@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade';
 const RecentTranscations = () => {
     const [transactions, setTransactions] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/transactions')
+        fetch('https://thawing-everglades-09724.herokuapp.com/transactions')
             .then(res => res.json())
             .then(data => setTransactions(data));
     }, [])
@@ -53,8 +53,8 @@ const RecentTranscations = () => {
                     <tbody>
                         {
                             transactions.map(transaction =>
-                                <Fade>
-                                    <tr key={transaction._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr key={transaction._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <Fade>
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             {transaction.OrderId}
                                         </th>
@@ -76,14 +76,14 @@ const RecentTranscations = () => {
                                         <td className="px-6 py-4">
                                             <p className='bg-red-400 text-white text-center py-1 rounded'> {transaction.status}</p>
                                         </td>
-                                    </tr>
-                                </Fade>
+                                    </Fade>
+                                </tr>
                             )}
                     </tbody>
                 </table>
             </div>
 
-        </div>
+        </div >
     );
 };
 
