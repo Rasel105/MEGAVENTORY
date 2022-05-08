@@ -87,7 +87,7 @@ const Inventory = () => {
                         </div>
                     </div>
                 </HeadShake>
-                <div className='md:mt-48 w-72 mx-auto md:col-span-7 items-center'>
+                <div className='md:mt-36 w-72 mx-auto md:col-span-7 items-center'>
                     <form onSubmit={handleStockUpdate}>
                         <div className='flex flex-col'>
                             <label className='block text-3xl text-center'><span>Restock</span> Products</label>
