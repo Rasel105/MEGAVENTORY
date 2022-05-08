@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BsFacebook, BsTwitter, BsYoutube, BsInstagram, BsTelegram, BsPinterest } from "react-icons/bs";
 
 const Footer = () => {
     const data = new Date()
@@ -25,7 +26,17 @@ const Footer = () => {
                     </li>
                 </ul>
             </div>
-            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {currentDate} All Rights Reserved Megaventory.</span>
+            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                <div className='flex justify-center my-2'>
+                    <BsFacebook className='text-blue-800 mr-2' size={30} />
+                    <BsTwitter className='mr-2' color='#00acee' size={30}/>
+                    <BsYoutube className='mr-2' color='#FF0000' size={30}/>
+                    <BsInstagram className='mr-2' color='#3f729b' size={30}/>
+                    <BsTelegram className='mr-2' color='#229ED9' size={30}/>
+                    <BsPinterest className='mr-2' color='#E60023' size={30}/>
+                </div>
+                &copy; {currentDate} All Rights Reserved Megaventory.
+            </span>
         </footer>
 
     );
