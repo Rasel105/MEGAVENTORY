@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HeadShake from 'react-reveal/HeadShake';
-
+import Rotate from 'react-reveal/Rotate';
+import Zoom from 'react-reveal/Zoom';
 
 const Inventory = () => {
     const { id } = useParams();
@@ -67,7 +67,7 @@ const Inventory = () => {
         <>
             <h2 className='text-4xl mx-8 text-center my-2'><span className='text-sky-500/100'>Inventory</span> Item</h2>
             <div className='container grid md:grid-cols-12 gap-5 w-full mx-auto justify-center my-3'>
-                <HeadShake>
+                <Rotate>
                     <div className="md:col-span-5 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                         <img className="rounded-t-lg" src={product.img} alt="" />
                         <div className="p-5">
@@ -86,15 +86,17 @@ const Inventory = () => {
                             </div>
                         </div>
                     </div>
-                </HeadShake>
+                </Rotate>
                 <div className='md:mt-36 w-72 mx-auto md:col-span-7 items-center'>
-                    <form onSubmit={handleStockUpdate}>
-                        <div className='flex flex-col'>
-                            <label className='block text-3xl text-center'><span>Restock</span> Products</label>
-                            <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' name='quantity' />
-                            <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock" />
-                        </div>
-                    </form>
+                    <Zoom>
+                        <form onSubmit={handleStockUpdate}>
+                            <div className='flex flex-col'>
+                                <label className='block text-3xl text-center'><span>Restock</span> Products</label>
+                                <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' name='quantity' />
+                                <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock" />
+                            </div>
+                        </form>
+                    </Zoom>
                 </div>
                 <ToastContainer />
             </div>
