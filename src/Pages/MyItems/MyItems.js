@@ -6,20 +6,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AiFillDelete } from "react-icons/ai";
 import { HiPencilAlt } from "react-icons/hi";
 import { useNavigate } from 'react-router-dom';
+import Zoom from 'react-reveal/Zoom';
+
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
     const navigate = useNavigate();
-   
+
     useEffect(() => {
         const email = user?.email;
         const url = `https://thawing-everglades-09724.herokuapp.com/myitems?email=${email}`;
         fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            setMyItems(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setMyItems(data)
+            })
     }, [myItems, user]);
 
     const handleProductDelete = id => {
@@ -68,27 +70,29 @@ const MyItems = () => {
                         </tr>
                     </thead>
                     {
-                        myItems.map(item => <tbody key={item._id}>
-                            <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    {item.product_name}
-                                </th>
-                                <td className="px-6 py-4">
-                                    ${item.price}
-                                </td>
-                                <td className="px-6 py-4">
-                                    {item.quantity}
-                                </td>
-                                <td className="px-6 py-4">
-                                    {item.supplier_name}
-                                </td>
-                                <td className="px-6 py-4 flex">
-                                    <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 m-2 rounded text-white">Delete <AiFillDelete className='inline' size={20}/></button>
-                                    <button onClick={() => navigateToInventory(item._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update <HiPencilAlt className='inline' size={20}/></button>
-                                </td>
-                            </tr>
-
-                        </tbody>
+                        myItems.map(item =>
+                            <Zoom>
+                                <tbody key={item._id}>
+                                    <tr className="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                            {item.product_name}
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            ${item.price}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.quantity}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.supplier_name}
+                                        </td>
+                                        <td className="px-6 py-4 flex">
+                                            <button onClick={() => handleProductDelete(item._id)} className="font-medium bg-red-400 py-2 px-3 m-2 rounded text-white">Delete <AiFillDelete className='inline' size={20} /></button>
+                                            <button onClick={() => navigateToInventory(item._id)} className="font-medium bg-sky-500/100 py-2 px-3 m-2 rounded text-white">Update <HiPencilAlt className='inline' size={20} /></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </Zoom>
                         )}
                 </table>
                 <ToastContainer />
