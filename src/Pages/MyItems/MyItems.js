@@ -33,7 +33,7 @@ const MyItems = () => {
                 console.log(error.message);
                 if (error.response.status === 403 || error.response.status === 401) {
                     signOut(auth);
-                    toast.success("Sign Out", {
+                    toast.success("Sign Out. Please Login again.", {
                         toastId: 'success1',
                     });
                     navigate('/login');
@@ -113,11 +113,11 @@ const MyItems = () => {
                                         </td>
                                     </tr>
                                 </Zoom>
-
+                                <ToastContainer />
                             </tbody>
                         )}
                 </table>
-                <ToastContainer />
+
             </div>
         </div >
     );
