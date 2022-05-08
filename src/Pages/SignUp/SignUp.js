@@ -8,6 +8,7 @@ import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Fade from 'react-reveal/Fade';
+import { AiOutlineLogin } from 'react-icons/ai';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -118,7 +119,7 @@ const SignUp = () => {
                                         className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                         type="submit"
                                     >
-                                        Create an Account
+                                        Create an Account <AiOutlineLogin className='ml-0 inline-block' size={20}/>
                                     </button>
                                 </div>
                                 <div className="text-center">

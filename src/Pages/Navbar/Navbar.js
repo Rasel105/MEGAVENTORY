@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { HiMenu } from "react-icons/hi";
 import CustomLink from '../CustomLink/CustomLink'
 import { Link } from 'react-router-dom';
+import { AiOutlineLogin } from 'react-icons/ai';
+import { SiGnuprivacyguard } from 'react-icons/si';
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -96,14 +98,14 @@ const Navbar = () => {
                                     <Link to="/login"
                                         className="px-2 py-2 mr-3 mb-2 bg-white text-teal-500 border-gray-100 rounded hover:border-transparent hover:bg-gray-100 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                                     >
-                                        Login
+                                        Login <AiOutlineLogin className='ml-1' size={20}/>
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/signup"
                                         className="px-3 py-2 bg-teal-500 text-gray-100 border-teal-600 rounded hover:border-transparent hover:bg-teal-600 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                                     >
-                                        Register
+                                        Register <SiGnuprivacyguard className='ml-1' size={18}/>
                                     </Link>
                                 </li>
                             </ul>

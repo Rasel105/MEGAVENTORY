@@ -8,6 +8,7 @@ import loginImage from '../../images/formImages/login.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Fade from 'react-reveal/Fade';
+import { AiOutlineLogin } from 'react-icons/ai';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -149,7 +150,7 @@ const Login = () => {
                                         className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                         type="submit"
                                     >
-                                        Login
+                                        Login <AiOutlineLogin className='ml-0 inline-block' size={20}/>
                                     </button>
                                 </div>
                                 <div className='flex items-center justify-center my-2'>
@@ -173,7 +174,7 @@ const Login = () => {
                                         className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                         type="button"
                                     >
-                                        Create an Account
+                                        Create an Account 
                                     </Link>
                                 </div>
                             </form>
