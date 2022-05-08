@@ -20,7 +20,7 @@ const Inventory = () => {
     const handleDelivered = id => {
 
         if (product.quantity <= 0) {
-            return
+            return;
         }
 
         fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
@@ -42,8 +42,20 @@ const Inventory = () => {
 
         event.preventDefault();
         const value = event.target.quantity.value;
-        if (value < 0 || value === null || value === '') {
-            return;
+        if (value === null) {
+            return toast.error('Input field in blank, Add some value!', {
+                toastId: 'success1',
+            });
+        }
+        if (value < 0) {
+            return toast.error('Sorry! Nagative value not allowed.', {
+                toastId: 'success1',
+            });
+        }
+        if (value === '') {
+            return toast.error('Please enter some value!', {
+                toastId: 'success1',
+            });
         }
         const quantity = parseInt(product.quantity) + parseInt(value);
         // const quantity = event.target.quantity.value;
@@ -93,7 +105,7 @@ const Inventory = () => {
                             <div className='flex flex-col'>
                                 <label className='block text-3xl text-center'><span>Restock</span> Products</label>
                                 <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' name='quantity' />
-                                <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock"  />
+                                <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock" />
                             </div>
                         </form>
                     </Zoom>
