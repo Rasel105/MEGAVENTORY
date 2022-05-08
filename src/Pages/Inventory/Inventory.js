@@ -10,7 +10,7 @@ const Inventory = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`)
+        fetch(`http://localhost:5000/product/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
@@ -23,7 +23,7 @@ const Inventory = () => {
             return;
         }
 
-        fetch(`https://thawing-everglades-09724.herokuapp.com/product/${id}`, {
+        fetch(`http://localhost:5000/product/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const Inventory = () => {
         }
         const quantity = parseInt(product.quantity) + parseInt(value);
         // const quantity = event.target.quantity.value;
-        fetch(`https://thawing-everglades-09724.herokuapp.com/insertProduct/${id}`, {
+        fetch(`http://localhost:5000/insertProduct/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

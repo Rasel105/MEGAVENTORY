@@ -4,7 +4,7 @@ import Pulse from 'react-reveal/Pulse';
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch('https://thawing-everglades-09724.herokuapp.com/blogs')
+        fetch('http://localhost:5000/blogs')
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);

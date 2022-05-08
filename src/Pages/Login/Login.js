@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Fade from 'react-reveal/Fade';
 import { AiOutlineLogin } from 'react-icons/ai';
+import axios from 'axios';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -39,6 +40,11 @@ const Login = () => {
         const password = e.target.password.value;
         // console.log(email, password)
         await signInWithEmailAndPassword(email, password);
+
+        const { data } = await axios.post('http://localhost:5000/login', { email })
+
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     };
 
     const resetPassword = () => {
@@ -58,7 +64,7 @@ const Login = () => {
     };
 
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         toast.success('Login successfull', {
             toastId: 'success1',
         });
@@ -150,7 +156,7 @@ const Login = () => {
                                         className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                         type="submit"
                                     >
-                                        Login <AiOutlineLogin className='ml-0 inline-block' size={20}/>
+                                        Login <AiOutlineLogin className='ml-0 inline-block' size={20} />
                                     </button>
                                 </div>
                                 <div className='flex items-center justify-center my-2'>
@@ -174,7 +180,7 @@ const Login = () => {
                                         className="w-full px-4 py-2 font-bold text-white bg-green-400 rounded-full hover:bg-green-600 focus:outline-none focus:shadow-outline"
                                         type="button"
                                     >
-                                        Create an Account 
+                                        Create an Account
                                     </Link>
                                 </div>
                             </form>

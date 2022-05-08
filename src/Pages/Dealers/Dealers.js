@@ -4,7 +4,7 @@ import RubberBand from 'react-reveal/RubberBand';
 const Dealers = () => {
     const [dealers, setDealers] = useState([]);
     useEffect(() => {
-        fetch(`https://thawing-everglades-09724.herokuapp.com/dealers`)
+        fetch(`http://localhost:5000/dealers`)
             .then(res => res.json())
             .then(data => setDealers(data));
     }, [])
