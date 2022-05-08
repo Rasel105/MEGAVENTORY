@@ -93,7 +93,7 @@ const Inventory = () => {
                             <div className='flex flex-col'>
                                 <label className='block text-3xl text-center'><span>Restock</span> Products</label>
                                 <input className='py-4 border-2 px-3 text-lg my-3 rounded shadow appearance-none focus:outline-none focus:shadow-outline' placeholder='Increase product' name='quantity' />
-                                <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock" />
+                                <input className='bg-green-400 py-3 rounded-xl cursor-pointer text-2xl hover:bg-green-500 text-white' type="submit" value="Restock"  />
                             </div>
                         </form>
                     </Zoom>
