@@ -1,11 +1,11 @@
 # Get't get start with MEGAVENTORY
 
-The name of the project is  [MEGAVENTORY](https://assignment-0011.web.app/)
+## The name of the project is  [MEGAVENTORY](https://assignment-0011.web.app/)
 ## Project overview
 
 
 
-* The MEGAVENTORY project, we use for the Frontend some of Technology like Tailwindcss, react, react router, react icon, react toastify, react-firebase hooks and so on.
+* The MEGAVENTORY project, we use for the Frontend some of Technology like Tailwindcss, react, react router, react icon, react toastify, react-firebase hooks, react-reveal and so on.
 * The MEGAVENTORY project we use for the Backend some of Technology like MongoDB, nodeJS, expressJS, cors, dotenv and so on.
 * and for the deployment we use Firebase for the Frontend and for the Backend we use Heroku.
 
@@ -24,4 +24,5 @@ The name of the project is  [MEGAVENTORY](https://assignment-0011.web.app/)
 * on the home page you can see another section which is Delers section here are the most valuable dealers.
 * on the last section you can the most recent transaction of the this inventories site is a tabular form.
 * lastly I have a footer.
+* I try to animate every page of this project. 
 
