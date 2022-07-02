@@ -8,7 +8,7 @@ const Location = () => {
 
     };
     return (
-
+        // update location
         <div className='container w-11/12 mx-auto my-10'>
             <h2 className='text-center text-4xl my-6'>Our <span className='text-sky-400'>Location</span></h2>
             <Fade right>
