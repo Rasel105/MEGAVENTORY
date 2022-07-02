@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="relative flex flex-wrap items-center justify-between px-2 py-4 bg-purple-500">
+            <nav className="relative flex flex-wrap items-center justify-between px-2 py-4 bg-purple-500 shadow-2xl">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link to="/"

@@ -28,7 +28,7 @@ const AddBlogs = () => {
             <Zoom>
                 <>
                     <h3 className='text-center text-3xl my-3 text-gray-700'>Add <span className='text-sky-400'>Blog</span></h3>
-                    <div className='border-2 p-3 my-5 container sm:p-3 sm:w-full md:w-5/12 mx-auto bg-slate-300 rounded-xl'>
+                    <div className='border p-3 my-5 container sm:p-3 sm:w-full md:w-5/12 mx-auto rounded-xl'>
                         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-white rounded p-5">
                             <label className="block mb-2 text-sm font-bold text-gray-700">Blog Title</label>
                             <input className='mb-2 py-2 px-2 text-lg shadow-lg text-gray-700 border rounded-lg appearance-none focus:outline-none focus:shadow-outline ' type="text" placeholder='Blog Title' {...register("title", { required: true })} />
